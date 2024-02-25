@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CONCEPT 1 | Typography</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		@font-face {
+			font-family: "Concept 1";
+			src: url("../assets/fonts/Concept1VF.ttf");
+		}
+		@font-face {
+			font-family: "Overused";
+			src: url("../assets/fonts/OverusedGrotesk-VF.ttf");
+		}
+		.title-full {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100dvh;
+			font-size: 5vw;
+			line-height: 1em;
+			z-index: 9;
+			font-family: "Overused";
+			font-variation-settings: "wght" 900, "slnt" 0;
+			text-transform: uppercase;
+			letter-spacing: -.1em;
+			color: white;
+			mix-blend-mode: difference;
+		}
+		.title-full span {
+			position: absolute;
+		}
+		.title {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			font-family: "Concept 1";
+			transform: translate(-50%, -50%);
+			font-size: 20vw;
+			font-weight: normal;
+			line-height: 1em;
+			white-space: nowrap;
+			margin-top: .1em;
+			margin-left: .1em;
+			color: white;
+			text-shadow: .05em 0 0 gray;
+			mix-blend-mode: difference;
+		}
+		.title span {
+			animation: title 5s cubic-bezier(0.76, 0, 0.24, 1) infinite alternate;
+			display: inline-block;
+		}
+		@keyframes title {
+			from {
+				font-variation-settings: "wght" 100;
+				text-shadow: .05em -.1em 0 gray;
+				transform: translateY(.5em);
+			}
+			to {
+				font-variation-settings: "wght" 0;
+				text-shadow: .05em .1em 0 gray;
+				transform: translateY(-.5em);
+			}
+		}
+		.container {
+			display: flex;
+			width: 100vw;
+			height: 100dvh;
+			overflow: hidden;
+			align-items: stretch;
+		}
+		.container div {
+			flex-grow: 1;
+			background-size: auto 10000vh;
+			transition: 1s cubic-bezier(0.76, 0, 0.24, 1);
+		}
+		@keyframes background-transform {
+			0% {
+				height: 100%;
+			}
+			100% {
+				height: 200%;
+			}
+		}
+		@keyframes background-shift {
+			0% {
+				background-position: center;
+			}
+			25% {
+				background-position: right;
+			}
+			50% {
+				background-position: center;
+			}
+			75% {
+				background-position: left;
+			}
+			100% {
+				background-position: center;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="title-full">
+		<span style="top: -.1em; left: .1em;">RISD</span>
+		<span style="top: -.1em; right: .2em;">2024</span>
+		<span style="bottom: 0; left:  .1em;">GRAD</span>
+		<span style="bottom: 0; right: .2em;">SHOW</span>
+	</div>
+	<div class="title">
+		<span style="animation-delay: -.5s;">R</span><span style="animation-delay: -1s;">I</span><span style="animation-delay: -1.5s;">S</span><span style="animation-delay: -2s;">D</span>
+	</div>
+	<div class="container"></div>
+
+	<script>
+		const images = [
+			"DM_BridgetDeFranco_02_1.jpg",
+			"PT_VirajMithani_02_0.jpg",
+			"INTAR_ShravanRao_01 (1).jpeg",
+			"DM_KamariSmalls_02.jpg",
+			"INTAR_LeaXu_08.jpg",
+			"TLAD_SevaSimone_4.jpg",
+			"JM_Xiaodai Huang_02_0.jpg"
+		]
+		const randomImage = images[Math.floor(Math.random()*images.length)];
+
+		const container = document.querySelector('.container');
+		let temp = '';
+		for (let i=0; i<100; i++) {
+			temp += `<div style="background-image:url('../assets/images/${randomImage}'); animation: background-transform ${Math.random()*10+10}s infinite alternate linear, background-shift ${Math.random()*200+200}s  infinite linear;"></div>`;
+		}
+		container.innerHTML = temp;
+	</script>
+</body>
+</html>

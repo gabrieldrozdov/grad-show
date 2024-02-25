@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		@font-face {
+			font-family: "Uncut";
+			src: url("UncutSansVF.ttf");
+		}
+		* {
+			margin: 0;
+			padding: 0;
+			font-family: "Uncut";
+			box-sizing: border-box;
+		}
+		body {
+			background-color: blue;
+		}
+		.container {
+			width: 100vw;
+			height: 100dvh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: crosshair;
+		}
+		h1 {
+			font-size: 5vw;
+			line-height: 1em;
+			text-align: center;
+		}
+		h1 span {
+			display: inline-block;
+			font-variation-settings: "TEST" 100;
+			color: white;
+			transition: .5s;
+			animation: test 1s infinite ease-in-out alternate;
+		}
+		h1 span:hover {
+			font-variation-settings: "TEST" 0;
+			transition: .1s cubic-bezier(0.87, 0, 0.13, 1);
+			color: black;
+		}
+		@keyframes test {
+			0% {
+				font-variation-settings: "TEST" 0;
+			}
+			100% {
+				font-variation-settings: "TEST" 100;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>ABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISDABCRISD</h1>
+	</div>
+
+	<script>
+		const title = document.querySelector('h1');
+		let temp = '';
+		for (let char of title.innerText) {
+			if (char == " ") {
+				char = "&nbsp;";
+			}
+			temp += `<span>${char}</span>`;
+		}
+		title.innerHTML = temp;
+	</script>
+</body>
+</html>

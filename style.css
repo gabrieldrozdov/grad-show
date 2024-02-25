@@ -1,0 +1,62 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+@font-face {
+	font-family: "Limkin";
+	src: url("assets/fonts/limkin.ttf");
+	font-weight: 100 900;
+}
+body {
+	font-family: "Limkin", sans-serif;
+	font-variation-settings: "wght" 400, "SRFF" 0;
+	font-size: 18px;
+	background-color: #eee;
+}
+h1 {
+	font-size: 48px;
+	font-weight: 200;
+	text-align: center;
+	font-variation-settings: "wght" 200, "SRFF" 0;
+	margin-bottom: 20px;
+}
+h1 span {
+	font-size: 24px;
+	font-weight: 700;
+	font-variation-settings: "wght" 700, "SRFF" 0;
+}
+h2 {
+	font-size: 18px;
+	font-weight: 700;
+	font-variation-settings: "wght" 700, "SRFF" 0;
+}
+.index {
+	padding: 40px;
+	margin: 0 auto;
+	max-width: 800px;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	background-color: white;
+	min-height: 100dvh;
+}
+.index-section {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.index-section a {
+	text-decoration: none;
+	border: 1px solid black;
+	padding: 10px 20px 8px 20px;
+	display: block;
+	color: black;
+}
+.index-section a:hover {
+	background-color: black;
+	color: white;
+}
+.index-section a:active {
+	opacity: .5;
+}

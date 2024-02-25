@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CONCEPT 2 | Fireworks</title>
+	<style>
+		body {
+			background-color: black;
+		}
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.container {
+			display: flex;
+			width: 100vw;
+			height: 100dvh;
+			overflow: hidden;
+			align-items: center;
+			justify-content: center;
+		}
+		.firework {
+			position: fixed;
+			width: 100px;
+			height: 100px;
+			/* transform: translate(-50%, -50%); */
+			transition: 2s cubic-bezier(0.33, 1, 0.68, 1);
+		}
+		.firework div {
+			width: 100px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			transform-origin: 100% 100%;
+			transition: 1s cubic-bezier(0.33, 1, 0.68, 1);
+		}
+		.firework img {
+			width: 100px;
+			transition: 1s cubic-bezier(0.33, 1, 0.68, 1);
+		}
+	</style>
+</head>
+<body>
+	<div class="container"></div>
+
+	<script>
+		const images = [
+			"DM_BridgetDeFranco_02_1.jpg",
+			"PT_VirajMithani_02_0.jpg",
+			"INTAR_ShravanRao_01 (1).jpeg",
+			"DM_KamariSmalls_02.jpg",
+			"INTAR_LeaXu_08.jpg",
+			"TLAD_SevaSimone_4.jpg",
+			"JM_Xiaodai Huang_02_0.jpg"
+		]
+		const container = document.querySelector('.container');
+		function generateFirework() {
+			const randomImage = images[Math.floor(Math.random()*images.length)];
+			let posX = Math.random()*100;
+			let posY = Math.random()*25+25;
+			let firework = document.createElement('div');
+			firework.classList.add('firework');
+			firework.style.left = posX + "%";
+			firework.style.top = posY + "%";
+			firework.style.transform = `translateX(${Math.random()*25-12.5}vw) translateY(100vh) rotate(0deg)`;
+			let temp = '';
+			let numberOfImages = Math.floor(Math.random()*10)+5;
+			let width = Math.random()*50+25;
+			for (let i=1; i<numberOfImages+1; i++) {
+				let rotate = (i/numberOfImages)*360;
+				temp += `
+					<div data-rotate="${rotate}" style="transform: rotate(${rotate}deg) scale(0) translate(0%, 0%); width:${width}px;">
+						<img src="../assets/images/${randomImage}" style=" width:${width}px;">
+					</div>
+				`;
+			}
+			firework.innerHTML = temp;
+			container.appendChild(firework);
+			setTimeout(() => {
+				firework.style.transform = `translateY(0vh) rotate(${Math.random()*360-180}deg)`;
+			}, 50)
+			
+			setTimeout(() => {
+				for (let div of firework.querySelectorAll('div')) {
+					let rotate = div.dataset.rotate;
+					div.style.transform = `rotate(${rotate}deg) scale(1)`;
+					setTimeout(() => {
+						div.style.transform = `rotate(${rotate}deg) scale(1) translate(-300%, -300%)`;
+					}, 1500);
+					const img = div.querySelector('img');
+					setTimeout(() => {
+						img.style.transform = `scale(0)`;
+					}, 1500);
+				}
+			}, 100)
+			setTimeout(() => {
+				// firework.style.transform = `translate(0vh) rotate(${Math.random()*720-360}deg)`;
+			}, 1400);
+			setTimeout(() => {
+				container.removeChild(firework);
+			}, 4000);
+
+			setTimeout(generateFirework, Math.random()*1000+250);
+		}
+		generateFirework();
+	</script>
+</body>
+</html>

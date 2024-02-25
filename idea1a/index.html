@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.container {
+			display: flex;
+			width: 100vw;
+			height: 100dvh;
+			overflow: hidden;
+			justify-content: space-between;
+		}
+		.container div {
+			flex-grow: 1;
+			animation: background-move 1s infinite alternate linear;
+			background-size: cover;
+			transition: flex-grow 1s cubic-bezier(0.83, 0, 0.17, 1);
+		}
+		.container div:hover {
+			flex-grow: 100;
+		}
+		@keyframes background-move {
+			0% {
+				background-position: left;
+			}
+			100% {
+				background-position: right;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+
+	</div>
+
+	<script>
+		// Together
+		const container = document.querySelector('.container');
+		let temp = '';
+		for (let i=0; i<100; i++) {
+			temp += `<div style="background-image:url('img${Math.floor(Math.random()*10+1)}.jpeg'); animation-duration: 5s; animation-delay:-${i*50}ms"></div>`;
+		}
+		container.innerHTML = temp;
+
+		// // Linear
+		// let index = 0;
+		// setInterval(() => {
+		// 	for (let child of container.childNodes) {
+		// 		child.style.flexGrow = 1;
+		// 	}
+		// 	const div = container.childNodes[index];
+		// 	div.style.flexGrow = 100;
+		// 	index++;
+		// 	if (index == container.childNodes.length) {
+		// 		index = 0;
+		// 	}
+		// }, 1000)
+
+		// // Random
+		// let index = 0;
+		// setInterval(() => {
+		// 	index = Math.floor(Math.random()*container.childNodes.length);
+		// 	for (let child of container.childNodes) {
+		// 		child.style.flexGrow = 1;
+		// 	}
+		// 	const div = container.childNodes[index];
+		// 	div.style.flexGrow = 100;
+		// }, 1000)
+	</script>
+</body>
+</html>

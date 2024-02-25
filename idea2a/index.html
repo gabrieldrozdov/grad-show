@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		@font-face {
+			font-family: "Uncut";
+			src: url("UncutSansVF.ttf");
+		}
+		* {
+			margin: 0;
+			padding: 0;
+			font-family: "Uncut";
+			box-sizing: border-box;
+		}
+		body {
+			background-color: blue;
+		}
+		.container {
+			width: 100vw;
+			height: 100dvh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		h1 {
+			font-size: 15vw;
+		}
+		h1 span {
+			animation: text-in .5s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+			display: inline-block;
+		}
+		.temp {
+			visibility: hidden;
+			animation: unset !important;
+		}
+		@keyframes text-in {
+			0% {
+				font-variation-settings: "TEST" 0;
+				/* transform: scale(5); */
+				color: transparent;
+				-webkit-text-stroke: .005em white;
+			}
+			99% {
+				color: transparent;
+				-webkit-text-stroke: .005em white;
+				font-variation-settings: "TEST" 100;
+			}
+			100% {
+				color: white;
+				-webkit-text-stroke: none;
+				font-variation-settings: "TEST" 100;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>ABC RISD</h1>
+	</div>
+
+	<script>
+		const title = document.querySelector('h1');
+		let temp = '';
+		for (let char of title.innerText) {
+			if (char == " ") {
+				char = "&nbsp;";
+			}
+			temp += `<span class="temp">${char}</span>`;
+		}
+		title.innerHTML = temp;
+
+		let index = 0;
+		let loop = setInterval(() => {
+			const char = title.childNodes[index];
+			char.classList.remove('temp');
+			index++;
+			if (index == title.childNodes.length) {
+				clearInterval(loop);
+			}
+		}, 50)
+	</script>
+</body>
+</html>
