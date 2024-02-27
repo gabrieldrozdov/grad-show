@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CONCEPT 2</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header class="title-container">
+		<h1 class="title-main"><span>R</span><span>I</span><span>S</span><span>D</span><span>&nbsp;</span><span>G</span><span>R</span><span>A</span><span>D</span><br><span>S</span><span>H</span><span>O</span><span>W</span>&nbsp;</span><span>2</span><span>0</span><span>2</span><span>4</span></h1>
+	</header>
+
+	<main class="toc">
+		<a style="--highlight: var(--yellow)" class="toc-link" href="#">
+			<span class="toc-link-burst">Architecture</span>
+			<span class="toc-link-stable">Architecture</span>
+		</a>
+		<a style="--highlight: var(--pink)" class="toc-link" href="#">
+			<span class="toc-link-burst">Ceramics</span>
+			<span class="toc-link-stable">Ceramics</span>
+		</a>
+		<a style="--highlight: var(--blue)" class="toc-link" href="#">
+			<span class="toc-link-burst">Design Engineering</span>
+			<span class="toc-link-stable">Design Engineering</span>
+		</a>
+		<a style="--highlight: var(--cyan)" class="toc-link" href="#">
+			<span class="toc-link-burst">Digital + Media</span>
+			<span class="toc-link-stable">Digital + Media</span>
+		</a>
+		<a style="--highlight: var(--green)" class="toc-link" href="#">
+			<span class="toc-link-burst">Furniture Design</span>
+			<span class="toc-link-stable">Furniture Design</span>
+		</a>
+		<a style="--highlight: var(--yellow)" class="toc-link" href="#">
+			<span class="toc-link-burst">Glass</span>
+			<span class="toc-link-stable">Glass</span>
+		</a>
+		<a style="--highlight: var(--pink)" class="toc-link" href="#">
+			<span class="toc-link-burst">Global Arts and Cultures</span>
+			<span class="toc-link-stable">Global Arts and Cultures</span>
+		</a>
+		<a style="--highlight: var(--blue)" class="toc-link" href="#">
+			<span class="toc-link-burst">Graphic Design</span>
+			<span class="toc-link-stable">Graphic Design</span>
+		</a>
+		<a style="--highlight: var(--cyan)" class="toc-link" href="#">
+			<span class="toc-link-burst">Industrial Design</span>
+			<span class="toc-link-stable">Industrial Design</span>
+		</a>
+		<a style="--highlight: var(--green)" class="toc-link" href="#">
+			<span class="toc-link-burst">Interior Architecture</span>
+			<span class="toc-link-stable">Interior Architecture</span>
+		</a>
+		<a style="--highlight: var(--yellow)" class="toc-link" href="#">
+			<span class="toc-link-burst">Jewelry + Metalsmithing</span>
+			<span class="toc-link-stable">Jewelry + Metalsmithing</span>
+		</a>
+		<a style="--highlight: var(--pink)" class="toc-link" href="#">
+			<span class="toc-link-burst">Landscape Architecture</span>
+			<span class="toc-link-stable">Landscape Architecture</span>
+		</a>
+		<a style="--highlight: var(--blue)" class="toc-link" href="#">
+			<span class="toc-link-burst">Nature-Culture-Sustainability Studies</span>
+			<span class="toc-link-stable">Nature-Culture-Sustainability Studies</span>
+		</a>
+		<a style="--highlight: var(--cyan)" class="toc-link" href="#">
+			<span class="toc-link-burst">Painting</span>
+			<span class="toc-link-stable">Painting</span>
+		</a>
+		<a style="--highlight: var(--green)" class="toc-link" href="#">
+			<span class="toc-link-burst">Photography</span>
+			<span class="toc-link-stable">Photography</span>
+		</a>
+		<a style="--highlight: var(--yellow)" class="toc-link" href="#">
+			<span class="toc-link-burst">Printmaking</span>
+			<span class="toc-link-stable">Printmaking</span>
+		</a>
+		<a style="--highlight: var(--pink)" class="toc-link" href="#">
+			<span class="toc-link-burst">Sculpture</span>
+			<span class="toc-link-stable">Sculpture</span>
+		</a>
+		<a style="--highlight: var(--blue)" class="toc-link" href="#">
+			<span class="toc-link-burst">Teaching + Learning in Art + Design</span>
+			<span class="toc-link-stable">Teaching + Learning in Art + Design</span>
+		</a>
+		<a style="--highlight: var(--cyan)" class="toc-link" href="#">
+			<span class="toc-link-burst">Textiles</span>
+			<span class="toc-link-stable">Textiles</span>
+		</a>
+	</main>
+
+	<div class="fireworks-container"></div>
+
+	<script>
+		for (let tocLink of document.querySelectorAll('.toc-link')) {
+			tocLink.style.animationDuration = (Math.random()*5+2).toFixed(2) + "s";
+			tocLink.style.animationDelay = -(Math.random()*5+1).toFixed(2) + "s";
+			let rotation = Math.floor(Math.random()*50-25);
+			for (let span of tocLink.querySelectorAll('span')) {
+				span.style.transform = `rotate(${rotation}deg)`;
+			}
+		}
+
+		const colors = ['yellow', 'pink', 'blue', 'cyan', 'green'];
+
+		const titleContainer = document.querySelector('.title-container');
+		const titleTextRow1 = `RISD Grad`;
+		const titleTextRow2 = `Show 2024`;
+		let titleIndex = 0;
+		function initTitle() {
+			let newTitle = document.createElement('div');
+			newTitle.dataset.index = titleIndex;
+			newTitle.classList.add('title');
+			newTitle.style.zIndex = 100000-titleIndex;
+			let color = colors[titleIndex%colors.length];
+			newTitle.style.setProperty('--highlight', `var(--${color})`);
+			newTitleTemp = '';
+			for (let character of titleTextRow1) {
+				if (character == " ") {
+					character = "&nbsp";
+				}
+				newTitleTemp += `<span>${character}</span>`;
+			}
+				newTitleTemp += `<br>`;
+			for (let character of titleTextRow2) {
+				if (character == " ") {
+					character = "&nbsp";
+				}
+				newTitleTemp += `<span>${character}</span>`;
+			}
+			newTitle.innerHTML = newTitleTemp;
+			titleContainer.appendChild(newTitle);
+			createTitle();
+		}
+		initTitle();
+
+		function createTitle() {
+			burstTitle(titleIndex);
+			titleIndex++;
+			let newTitle = document.createElement('div');
+			newTitle.dataset.index = titleIndex;
+			newTitle.classList.add('title');
+			newTitle.style.zIndex = 100000-titleIndex;
+			let color = colors[titleIndex%colors.length];
+			newTitle.style.setProperty('--highlight', `var(--${color})`);
+			newTitleTemp = '';
+			for (let character of titleTextRow1) {
+				if (character == " ") {
+					character = "&nbsp";
+				}
+				newTitleTemp += `<span>${character}</span>`;
+			}
+				newTitleTemp += `<br>`;
+			for (let character of titleTextRow2) {
+				if (character == " ") {
+					character = "&nbsp";
+				}
+				newTitleTemp += `<span>${character}</span>`;
+			}
+			newTitle.innerHTML = newTitleTemp;
+			titleContainer.appendChild(newTitle);
+		}
+
+		function burstTitle(index) {
+			const title = document.querySelector(`.title[data-index="${index}"]`);
+			for (let span of title.querySelectorAll('span')) {
+				setTimeout(() => {
+					span.style.fontVariationSettings = `'BRST' ${Math.round(Math.random()*50+50)}`;
+					span.style.color = `transparent`;
+					span.style.transform = `rotate(${Math.round(Math.random()*180-90)}deg)`;
+					setTimeout(() => {
+						span.style.opacity = 0;
+					}, 2000)
+				}, Math.random()*5000+1000)
+			}
+			setTimeout(() => {
+				createTitle();
+				setTimeout(() => {
+					title.remove();
+				}, 5000)
+			}, 3000);
+		}
+		
+		const fireworksContainer = document.querySelector('.fireworks-container');
+		function generateFirework() {
+			let color = colors[titleIndex%colors.length];
+			let posX = Math.random()*100;
+			let posY = Math.random()*25+25;
+			let firework = document.createElement('div');
+			firework.classList.add('firework');
+			firework.style.left = posX + "%";
+			firework.style.top = posY + "%";
+			firework.style.transform = `translateX(${Math.random()*25-12.5}vw) translateY(100vh) rotate(0deg)`;
+			let temp = '';
+			let numberOfImages = 8;
+			let width = Math.random()*50+25;
+			for (let i=1; i<numberOfImages+1; i++) {
+				let rotate = (i/numberOfImages)*360;
+				temp += `
+					<div data-rotate="${rotate}" style="transform: rotate(${rotate}deg) scale(0) translate(0%, 0%); width:${width}px;" class="firework-capsule">
+						<div style="background-color: var(--${color});" class="firework-color"></div>
+					</div>
+				`;
+			}
+			firework.innerHTML = temp;
+			fireworksContainer.appendChild(firework);
+			setTimeout(() => {
+				firework.style.transform = `translateY(0vh) rotate(${Math.random()*360-180}deg)`;
+			}, 50)
+			
+			setTimeout(() => {
+				for (let fireworkCapsule of firework.querySelectorAll('.firework-capsule')) {
+					let rotate = fireworkCapsule.dataset.rotate;
+					fireworkCapsule.style.transform = `rotate(${rotate}deg) scale(1)`;
+					setTimeout(() => {
+						fireworkCapsule.style.transform = `rotate(${rotate}deg) scale(1) translate(-300%, -300%)`;
+					}, 1500);
+					const fireworkColor = fireworkCapsule.querySelector('.firework-color');
+					setTimeout(() => {
+						fireworkColor.style.transform = `scale(0)`;
+					}, 1500);
+				}
+			}, 100)
+			setTimeout(() => {
+				// firework.style.transform = `translate(0vh) rotate(${Math.random()*720-360}deg)`;
+			}, 1400);
+			setTimeout(() => {
+				firework.remove();
+			}, 4000);
+
+			setTimeout(generateFirework, Math.random()*1000+250);
+		}
+		generateFirework();
+	</script>
+</body>
+</html>

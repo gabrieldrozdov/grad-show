@@ -1,0 +1,189 @@
+@font-face {
+	font-family: "Manifont";
+	src: url("ManifontGroteskBook.ttf");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Manifont";
+	src: url("ManifontGroteskBookItalic.ttf");
+	font-weight: normal;
+	font-style: italic;
+}
+@font-face {
+	font-family: "Manifont";
+	src: url("ManifontGroteskBold.ttf");
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Manifont";
+	src: url("ManifontGroteskBoldItalic.ttf");
+	font-weight: bold;
+	font-style: italic;
+}
+@font-face {
+	font-family: "Manifont Dot";
+	src: url("ManifontGroteskBookDot.ttf");
+}
+@font-face {
+	font-family: "Manifont Burst";
+	src: url("ManifontBurstVF.ttf");
+}
+:root {
+	--brown: #241516;
+	--yellow: #EFEF26;
+	--pink: #FF89C2;
+	--blue: #6A82FF;
+	--cyan: #9CEDFF;
+	--green: #6DFF48;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: "Manifont", sans-serif;
+	background-color: var(--brown);
+	color: var(--yellow);
+}
+.title-container {
+	font-family: "Manifont Burst", sans-serif;
+	text-transform: uppercase;
+	position: relative;
+	text-align: center;
+	height: 100vh;
+}
+.title-main {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 10vw;
+	font-weight: normal;
+	-webkit-text-stroke: 1px white;
+	letter-spacing: -0.08em;
+	line-height: .9em;
+	width: 100vw;
+	color: transparent;
+}
+.title-main span {
+	display: inline-block;
+}
+.title {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	font-weight: normal;
+	transform: translate(-50%, -50%);
+	font-size: 10vw;
+	letter-spacing: -0.08em;
+	line-height: .9em;
+	width: 100vw;
+	pointer-events: none;
+	--highlight: white;
+	-webkit-text-stroke: 1px var(--highlight);
+	color: var(--highlight);
+}
+.title span {
+	white-space: nowrap;
+	display: inline-block;
+	font-variation-settings: "BRST" 0;
+	transition: 1s font-variation-settings cubic-bezier(0.26, 1, 0.3, 1), .5s transform cubic-bezier(0.16, 1, 0.3, 1), .5s opacity linear;
+}
+.toc {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 5vw;
+	padding: 0 10vw;
+	perspective: 100px;
+	padding-bottom: 25vh;
+}
+.toc-link {
+	--highlight: var(--yellow);
+	color: var(--highlight);
+	text-decoration: none;
+	text-align: center;
+	font-size: 3vw;
+	font-family: "Manifont Burst", sans-serif;
+	font-variation-settings: "BRST" 0;
+	text-transform: uppercase;
+	transform-style: preserve-3d;
+	transform-origin: center;
+	animation: toc-drift 1s infinite ease-in-out alternate;
+	position: relative;
+	height: 3em;
+}
+@keyframes toc-drift {
+	from {
+		transform: rotateX(-2deg) rotateY(2deg) rotateZ(-2deg) translateY(-21%);
+	}
+	to {
+		transform: rotateX(2deg) rotateY(-2deg) rotateZ(2deg) translateY(25%);
+	}
+}
+.toc-link:hover .toc-link-burst {
+	color: transparent;
+	-webkit-text-stroke: 1px var(--highlight);
+	font-variation-settings: "BRST" 100;
+}
+.toc-link:nth-child(odd) {
+	text-align: right;
+}
+.toc-link:nth-child(even) {
+	text-align: left;
+}
+.toc-link:nth-child(odd), .toc-link-burst,.toc-link:nth-child(odd), .toc-link-stable {
+	top: 0;
+	left: 0;
+}
+.toc-link:nth-child(even), .toc-link-burst,.toc-link:nth-child(even), .toc-link-stable {
+	top: 50%;
+	right: 0;
+}
+.toc-link-burst {
+	color: var(--highlight);
+	display: block;
+	position: absolute;
+	z-index: 1;
+	transition: font-variation-settings .2s cubic-bezier(0.26, 1, 0.3, 1);
+}
+.toc-link-stable {
+	display: block;
+	position: absolute;
+	color: white;
+}
+.fireworks-container {
+	display: flex;
+	width: 100vw;
+	height: 100dvh;
+	position: fixed;
+	bottom: 0;
+	overflow: hidden;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+	z-index: -1;
+}
+.firework {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	/* transform: translate(-50%, -50%); */
+	transition: 2s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.firework-capsule {
+	width: 100px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform-origin: 100% 50%;
+	transition: 1s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.firework-color {
+	background-color: white;
+	width: 100px;
+	transition: 1s cubic-bezier(0.33, 1, 0.68, 1);
+	aspect-ratio: 10/1;
+}

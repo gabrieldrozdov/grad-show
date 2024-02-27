@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CONCEPT 1</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<header class="header">
+			<h1 class="title">
+				<span>RISD</span><br>
+				<span>GRAD</span><br>
+				<span>SHOW</span><br>
+				<span>2024</span><br><br>
+				<span class="title-nav" style="letter-spacing: -.2em">INDEX</span>
+				<span class="title-nav">INFO</span>
+			</h1>
+			<div class="slices"></div>
+		</header>
+	
+		<main class="toc">
+			<a class="toc-link" href="#"><span>Architecture</span></a>
+			<a class="toc-link" href="#"><span>Ceramics</span></a>
+			<a class="toc-link" href="#"><span>Design Engineering</span></a>
+			<a class="toc-link" href="#"><span>Digital + Media</span></a>
+			<a class="toc-link" href="#"><span>Furniture Design</span></a>
+			<a class="toc-link" href="#"><span>Glass</span></a>
+			<a class="toc-link" href="#"><span>Global Arts and Cultures</span></a>
+			<a class="toc-link" href="#"><span>Graphic Design</span></a>
+			<a class="toc-link" href="#"><span>Industrial Design</span></a>
+			<a class="toc-link" href="#"><span>Interior Architecture</span></a>
+			<a class="toc-link" href="#"><span>Jewelry + Metalsmithing</span></a>
+			<a class="toc-link" href="#"><span>Landscape Architecture</span></a>
+			<a class="toc-link" href="#"><span>Nature-Culture-Sustainability Studies</span></a>
+			<a class="toc-link" href="#"><span>Painting</span></a>
+			<a class="toc-link" href="#"><span>Photography</span></a>
+			<a class="toc-link" href="#"><span>Printmaking</span></a>
+			<a class="toc-link" href="#"><span>Sculpture</span></a>
+			<a class="toc-link" href="#"><span>Teaching + Learning in Art + Design</span></a>
+			<a class="toc-link" href="#"><span>Textiles</span></a>
+			<div class="toc-controls">
+			</div>
+		</main>
+	</div>
+
+	<script>
+		const images = [
+			"DM_BridgetDeFranco_02_1.jpg",
+			"PT_VirajMithani_02_0.jpg",
+			"INTAR_ShravanRao_01 (1).jpeg",
+			"DM_KamariSmalls_02.jpg",
+			"INTAR_LeaXu_08.jpg",
+			"TLAD_SevaSimone_4.jpg",
+			"JM_Xiaodai Huang_02_0.jpg"
+		]
+		const randomImage = images[Math.floor(Math.random()*images.length)];
+
+		const colors = ['offblack', 'offwhite', 'brown', 'green', 'gold', 'gray']
+
+		const slices = document.querySelector('.slices');
+		let columns = Math.round(Math.random()*5)+10;
+
+		let styleColumns = '';
+		for (let i=0; i<columns; i++) {
+			styleColumns += "1fr ";
+		}
+		slices.style.gridTemplateColumns = styleColumns;
+
+		let slicesTemp = '';
+		for (let col=0; col<columns; col++) {
+			let rows = Math.round(Math.random()*10+1);
+			let styleRows = '';
+			for (let i=0; i<rows; i++) {
+				styleRows += "1fr ";
+			}
+			slicesTemp += `<div class="slices-block" style="grid-template-rows: ${styleRows}">`;
+			for (let row=0; row<rows; row++) {
+				let subcols = Math.round(Math.random()*10+1);
+				let styleSubcols = '';
+				let subcolsTemp = '';
+				const randomImage = images[Math.floor(Math.random()*images.length)];
+				for (let subcol=0; subcol<subcols; subcol++) {
+					styleSubcols += "1fr ";
+					subcolsTemp += `<div class="slice" style="background-image:url('../assets/images/${randomImage}'); animation: background-shift ${Math.random()*200+200}s infinite linear;"></div>`;
+				}
+
+				let direction = "columns";
+				// if (Math.random() < .5) {
+				// 	direction = "rows";
+				// }
+				let color = colors[Math.floor(Math.random()*colors.length)];
+				slicesTemp += `<div class="slices-subblock" style="grid-template-${direction}: ${styleSubcols};"><div class="slice-color" style="background-color: var(--${color})"></div>${subcolsTemp}</div>`;
+			}
+			slicesTemp += `</div>`;
+		}
+		slices.innerHTML = slicesTemp;
+		
+		for (let tocLink of document.querySelectorAll('.toc-link')) {
+			let cols = Math.round(Math.random()*5+2);
+			let tocLinkStyle = '';
+			let tocLinkTemp = '';
+			let color = colors[Math.floor(Math.random()*colors.length)];
+			const randomImage = images[Math.floor(Math.random()*images.length)];
+			for (let col=0; col<cols; col++) {
+				tocLinkStyle += '1fr ';
+				tocLinkTemp += `<div style="background-image:url('../assets/images/${randomImage}'); animation: background-shift ${Math.random()*200+200}s infinite linear;"></div>`;
+			}
+			tocLink.innerHTML += `<div class="toc-link-background-color" style="background-color: var(--${color})"></div><div class="toc-link-background" style="grid-template-rows: ${tocLinkStyle};">${tocLinkTemp}</div>`;
+		}
+	</script>
+</body>
+</html>

@@ -31,6 +31,12 @@ h2 {
 	font-weight: 700;
 	font-variation-settings: "wght" 700, "SRFF" 0;
 }
+h3 {
+	font-size: 14px;
+	font-weight: 700;
+	margin-top: 10px;
+	font-variation-settings: "wght" 700, "SRFF" 0;
+}
 .index {
 	padding: 40px;
 	margin: 0 auto;
