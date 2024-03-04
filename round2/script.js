@@ -7,6 +7,7 @@ fetch('credits.json')
 	.then((json) => {
 		creditsJSON = json;
 		generateImages();
+		populateDepartments();
 	})
 
 function generateImages() {
@@ -14,21 +15,21 @@ function generateImages() {
 	for (let i=0; i<4; i++) {
 
 		// 2023 photos
-		// let keys = Object.keys(creditsJSON);
-		// let randomImage = creditsJSON[Math.floor(Math.random()*keys.length)]['img'];
-		// images.push(randomImage);
+		let keys = Object.keys(creditsJSON);
+		let randomImage = creditsJSON[Math.floor(Math.random()*keys.length)]['img'];
+		images.push(randomImage);
 
 		// Totally random images
-		images.push(`img${Math.floor(Math.random()*146)}.jpg`);
+		// images.push(`img${Math.floor(Math.random()*146)}.jpg`);
 	}
 	
-	const headerGenart = document.querySelector('.header-genart');
+	const headerGenart = document.querySelector('.gs24-header-genart');
 	let headerGenartTemp = '';
 	let totalDivisions = Math.round(Math.random()*8+2);
 	for (let col=0; col<totalDivisions; col++) {
 		// Set random number of rows for col
 		let rows = Math.round(Math.random()*7+3);
-		headerGenartTemp += `<div class="header-genart-col">`;
+		headerGenartTemp += `<div class="gs24-header-genart-col">`;
 	
 		// Generate rows in column
 		for (let row=0; row<rows; row++) {
@@ -38,17 +39,16 @@ function generateImages() {
 			let slicesTemp = '';
 			const randomImage = images[Math.floor(Math.random()*images.length)];
 			for (let slice=0; slice<slices; slice++) {
-
 				// Totally random images
-				slicesTemp += `<div class="header-genart-slice" style="background-image:url('random-images/${randomImage}'); animation: background-shift 600s -${Math.random()*10}s infinite linear;"></div>`;
+				// slicesTemp += `<div class="gs24-header-genart-slice" style="background-image:url('random-images/${randomImage}'); animation: background-shift 600s -${Math.random()*10}s infinite linear;"></div>`;
 
 				// 2023 photos
-				// slicesTemp += `<div class="header-genart-slice" style="background-image:url('2023-images/${randomImage}'); animation: background-shift 600s -${Math.random()*10}s infinite linear;"></div>`;
+				slicesTemp += `<div class="gs24-header-genart-slice" style="background-image:url('2023-images/${randomImage}'); animation: background-shift 600s -${Math.random()*10}s infinite linear;"></div>`;
 			}
 	
 			headerGenartTemp += `
-				<div class="header-genart-row" style="animation-delay: ${Math.random()*.5}s">
-					<div class="header-genart-slices">
+				<div class="gs24-header-genart-row" style="animation-delay: ${Math.random()*.5}s">
+					<div class="gs24-header-genart-slices">
 						${slicesTemp}
 					</div>
 				</div>
@@ -62,19 +62,19 @@ function generateImages() {
 // Select a random header image to feature
 let activeHeaderImage;
 function headerFeature() {
-	const headerImages = document.querySelectorAll('.header-genart-slice');
-	const headerCredit = document.querySelector('.header-credit');
+	const headerImages = document.querySelectorAll('.gs24-header-genart-slice');
+	const headerCredit = document.querySelector('.gs24-header-credit');
 	activeHeaderImage = headerImages[Math.floor(Math.random()*headerImages.length)];
 	activeHeaderImage.dataset.active = 1;
 	activeHeaderImage.parentElement.parentElement.dataset.active = 1;
 	activeHeaderImage.parentElement.parentElement.parentElement.dataset.active = 1;
 	const prevImage = activeHeaderImage;
-	headerCredit.style.transform = "scale(1)";
+	headerCredit.style.transform = "translateX(0%)";
 	setTimeout(() => {
 		prevImage.dataset.active = 0;
 		prevImage.parentElement.parentElement.dataset.active = 0;
 		prevImage.parentElement.parentElement.parentElement.dataset.active = 0;
-		headerCredit.style.transform = "scale(0)";
+		headerCredit.style.transform = "translateX(100%)";
 	}, 4500)
 	setTimeout(headerFeature, 5500);
 }
@@ -83,15 +83,15 @@ setTimeout(headerFeature, 2000);
 // Initialize title style settings
 let titleColumnLetters = ["", "", "", ""];
 let index = 0;
-for (let titleColumn of document.querySelectorAll('.title-column')) {
+for (let titleColumn of document.querySelectorAll('.gs24-title-column')) {
 	const letters = titleColumn.querySelectorAll('div');
 	titleColumnLetters[index] = letters[Math.floor(Math.random()*letters.length)];
 	index++;
 }
-for (let div of document.querySelectorAll('.title-column div')) {
+for (let div of document.querySelectorAll('.gs24-title-column div')) {
 	div.style.animationDelay = Math.random()*.5+"s";
 }
-for (let span of document.querySelectorAll('.title-column span')) {
+for (let span of document.querySelectorAll('.gs24-title-column span')) {
 	span.style.backgroundColor = `rgba(0,0,0,${Math.random()*.2})`;
 }
 
@@ -142,3 +142,28 @@ setTimeout(() => {
 setTimeout(() => {
 	animateTitle();
 }, 3000 + Math.random()*2000)
+
+// Populate department link animations
+function populateDepartments() {
+	for (let tocLink of document.querySelectorAll('.gs24-toc-link')) {
+		let images = [];
+		for (let i=0; i<4; i++) {
+			// 2023 photos
+			let keys = Object.keys(creditsJSON);
+			let randomImage = creditsJSON[Math.floor(Math.random()*keys.length)]['img'];
+			images.push(randomImage);
+		}
+	
+		let tocLinkTemp = "";
+		let cols = Math.round(Math.random()*8+3);
+		const randomImage = images[Math.floor(Math.random()*images.length)];
+		for (let i=0; i<cols; i++) {
+			tocLinkTemp += `<div class="gs24-toc-link-genart-slice" style="background-image:url('2023-images/${randomImage}'); animation: background-shift 600s -${Math.random()*10}s infinite linear;"></div>`;
+		}
+		tocLink.innerHTML += `
+			<div class="gs24-toc-link-genart">
+				${tocLinkTemp}
+			</div>
+		`;
+	}
+}
