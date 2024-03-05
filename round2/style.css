@@ -544,6 +544,7 @@ body {
 .gs24-menus[data-menu="about"] #gs24-about {
 	display: block;
 	padding: 40px 20px;
+	line-height: 1.4em;
 }
 .gs24-menus[data-menu="index"] #gs24-index {
 	display: block;

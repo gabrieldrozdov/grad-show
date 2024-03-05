@@ -73,8 +73,14 @@ function populateStudents() {
 		let studentTemp = "";
 		let cols = Math.round(Math.random()*4+2);
 		const randomImage = images[Math.floor(Math.random()*images.length)];
-		for (let i=0; i<cols; i++) {
-			studentTemp += `<div class="gs24-subpage-student-genart-slice" style="background-image:url('../2023-images/${randomImage}'); animation: background-shift 600s -${Math.random()*10}s infinite linear;"></div>`;
+		if (parseInt(studentLink.parentElement.dataset.empty) == 1) {
+			for (let i=0; i<cols; i++) {
+				studentTemp += `<div class="gs24-subpage-student-genart-slice" style="background-image: linear-gradient(90deg, rgba(255,255,255,${(Math.random()*.2).toFixed(2)}) 0%, rgba(255,255,255,${(Math.random()*.2).toFixed(2)}) 100%); animation: background-shift 600s -${Math.random()*10}s infinite linear;"></div>`;
+			}
+		} else {
+			for (let i=0; i<cols; i++) {
+				studentTemp += `<div class="gs24-subpage-student-genart-slice" style="background-image:url('../2023-images/${randomImage}'); animation: background-shift 600s -${Math.random()*10}s infinite linear;"></div>`;
+			}
 		}
 		studentLink.innerHTML = studentTemp;
 	}
