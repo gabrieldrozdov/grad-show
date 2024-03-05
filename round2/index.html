@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<div class="gs24-container">
+	<div class="gs24-home-container" data-genart="0">
 		<header class="gs24-header">
 			<h1 class="gs24-title-seo">RISD Grad Show 2024</h1>
 			<div class="gs24-title">
@@ -46,37 +46,157 @@
 				</div>
 			</div>
 		</header>
+
+		<div class="gs24-genart-controls">
+			<div class="gs24-genart-controls-btn" onclick="refreshArt();">
+				<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
+			</div>
+			<div class="gs24-genart-controls-btn" onclick="closeGenart();">
+				<svg viewBox="0 0 100 100"><polygon points="100 12.351 87.649 0 50 37.649 12.351 0 0 12.351 37.649 50 0 87.649 12.351 100 50 62.351 87.649 100 100 87.649 62.351 50 100 12.351"/></svg>
+			</div>
+		</div>
+		
+		<div class="gs24-home-content">
+			<nav class="gs24-nav">
+				<a class="gs24-nav-arrow" href="#departments">
+					<svg viewBox="0 0 107.071 60.607"><polygon points="53.536 60.607 0 7.071 7.071 0 53.536 46.464 100 0 107.071 7.071 53.536 60.607"/></svg>
+				</a>
+				<a href="./" class="gs24-nav-title">
+					<div>
+						<span class="gs24-nav-title-white">RISD</span>
+						<span class="gs24-nav-title-black">Grad</span>
+						<span class="gs24-nav-title-white">Show</span>
+						<span class="gs24-nav-title-black">2024</span>
+					</div>
+				</a>
+				<div class="gs24-nav-spacer"></div>
+				<a class="gs24-nav-link" id="gs24-toggle-about" data-active="0" onclick="toggleMenu('about');" href="#departments">About</a>
+				<a class="gs24-nav-link" id="gs24-toggle-index" data-active="0" onclick="toggleMenu('index');" href="#departments">Index</a>
+				<div class="gs24-genart-toggle" onclick="openGenart();">
+					<svg viewBox="0 0 110 110"><path d="M20,70H0V0h20v70ZM20,90H0v20h20v-20ZM30,110h20v-60h-20v60ZM30,30h20V0h-20v30ZM60,110h20v-40h-20v40ZM60,50h20V0h-20v50ZM90,110h20v-50h-20v50ZM89.707,40h20V0h-20v40Z"/></svg>
+				</div>
+
+				<div class="gs24-menus" data-menu="none">
+					<div class="gs24-menus-close" onclick="closeMenu();">
+						<svg viewBox="0 0 100 100"><polygon points="98.535 8.536 91.465 1.464 50 42.929 8.536 1.464 1.464 8.536 42.929 50 1.464 91.465 8.536 98.535 50 57.071 91.465 98.535 98.535 91.465 57.071 50 98.535 8.536"/></svg>
+					</div>
 	
-		<nav class="gs24-nav">
-			<div class="gs24-nav-link">About</div>
-			<div class="gs24-nav-divider"></div>
-			<div class="gs24-nav-link">Index</div>
-			<div class="gs24-nav-divider"></div>
-			<a class="gs24-nav-link" href="#departments">Departments</a>
-		</nav>
+					<div class="gs24-menu" id="gs24-about">
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</p>
+					</div>
 	
-		<main class="gs24-toc" id="departments">
-			<a class="gs24-toc-link" href="#"><span>Architecture</span></a>
-			<a class="gs24-toc-link" href="#"><span>Ceramics</span></a>
-			<a class="gs24-toc-link" href="#"><span>Design Engineering</span></a>
-			<a class="gs24-toc-link" href="#"><span>Digital + Media</span></a>
-			<a class="gs24-toc-link" href="#"><span>Furniture Design</span></a>
-			<a class="gs24-toc-link" href="#"><span>Glass</span></a>
-			<a class="gs24-toc-link" href="#"><span>Global Arts<br>and Cultures</span></a>
-			<a class="gs24-toc-link" href="#"><span>Graphic Design</span></a>
-			<a class="gs24-toc-link" href="#"><span>Industrial Design</span></a>
-			<a class="gs24-toc-link" href="#"><span>Interior<br>Architecture</span></a>
-			<a class="gs24-toc-link" href="#"><span>Jewelry + Metalsmithing</span></a>
-			<a class="gs24-toc-link" href="#"><span>Landscape Architecture</span></a>
-			<a class="gs24-toc-link" href="#"><span>Nature-Culture-<br>Sustainability Studies</span></a>
-			<a class="gs24-toc-link" href="#"><span>Painting</span></a>
-			<a class="gs24-toc-link" href="#"><span>Photography</span></a>
-			<a class="gs24-toc-link" href="#"><span>Printmaking</span></a>
-			<a class="gs24-toc-link" href="#"><span>Sculpture</span></a>
-			<a class="gs24-toc-link" href="#"><span>Teaching + Learning<br>in Art + Design</span></a>
-			<a class="gs24-toc-link" href="#"><span>Textiles</span></a>
-		</main>
+					<div class="gs24-menu" id="gs24-index">
+						<div class="gs24-index-letter">A</div>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
 	
+						<div class="gs24-index-letter">B</div>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+	
+						<div class="gs24-index-letter">C</div>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+	
+						<div class="gs24-index-letter">D</div>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+	
+						<div class="gs24-index-letter">E</div>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+	
+						<div class="gs24-index-letter">F</div>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+	
+						<div class="gs24-index-letter">G</div>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+						<a href="">Firstname Lastname</a>
+					</div>
+				</div>
+			</nav>
+		
+			<main class="gs24-toc" id="departments">
+				<a class="gs24-toc-link" href="subpage/"><span>Architecture</span></a>
+				<a class="gs24-toc-link" href="subpage/"><span>Ceramics</span></a>
+				<a class="gs24-toc-link" href="subpage/"><span>Design Engineering</span></a>
+				<a class="gs24-toc-link" href="subpage/"><span>Digital + Media</span></a>
+				<a class="gs24-toc-link" href="subpage/"><span>Furniture Design</span></a>
+				<a class="gs24-toc-link" href="subpage/"><span>Glass</span></a>
+				<a class="gs24-toc-link" href="subpage/"><span>Global Arts<br>and Cultures</span></a>
+				<a class="gs24-toc-link" href="subpage/"><span>Graphic Design</span></a>
+				<a class="gs24-toc-link" href="subpage/"><span>Industrial Design</span></a>
+				<a class="gs24-toc-link" href="subpage/"><span>Interior<br>Architecture</span></a>
+				<a class="gs24-toc-link" href="subpage/"><span>Jewelry + Metalsmithing</span></a>
+				<a class="gs24-toc-link" href="subpage/"><span>Landscape Architecture</span></a>
+				<a class="gs24-toc-link" href="subpage/"><span>Nature-Culture-<br>Sustainability Studies</span></a>
+				<a class="gs24-toc-link" href="subpage/"><span>Painting</span></a>
+				<a class="gs24-toc-link" href="subpage/"><span>Photography</span></a>
+				<a class="gs24-toc-link" href="subpage/"><span>Printmaking</span></a>
+				<a class="gs24-toc-link" href="subpage/"><span>Sculpture</span></a>
+				<a class="gs24-toc-link" href="subpage/"><span>Teaching + Learning<br>in Art + Design</span></a>
+				<a class="gs24-toc-link" href="subpage/"><span>Textiles</span></a>
+			</main>
+		</div>
 	</div>
 	<script src="script.js"></script>
 </body>
