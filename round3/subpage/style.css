@@ -1,0 +1,305 @@
+@font-face {
+	font-family: "Limkin";
+	src: url("../limkin.ttf");
+	font-weight: 100 900;
+}
+:root {
+	--offblack: #1b1b1b;
+	--offwhite: #f1f1f1;
+}
+* {
+	scroll-behavior: smooth;
+	scroll-padding-top: 60px;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: "Limkin", sans-serif;
+	font-variation-settings: "wght" 300, "SRFF" 0;
+	color: var(--offwhite);
+	background-color: rgba(0,0,0,.9);
+}
+
+/* Nav */
+.gs24-subpage-nav {
+	display: flex;
+	align-items: center;
+	background-color: rgb(15, 15, 15);
+	position: sticky;
+	top: 0;
+	z-index: 9;
+	height: 60px;
+}
+.gs24-subpage-nav-title {
+	flex-shrink: 0;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+	color: var(--offblack);
+	text-decoration: none;
+}
+.gs24-subpage-nav-title:hover {
+	opacity: .8;
+}
+.gs24-subpage-nav-title:active {
+	opacity: .5;
+}
+.gs24-subpage-nav-title h1 {
+	display: flex;
+	height: 100%;
+	font-size: 20px;
+	align-items: stretch;
+	text-transform: uppercase;
+}
+.gs24-subpage-nav-title h1 span span {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: .15em;
+	width: 1.2em;
+	text-align: center;
+	transition: background-color 1s linear, font-variation-settings 1s linear;
+}
+.gs24-subpage-nav-title-white {
+	display: flex;
+	color: var(--offblack);
+	background-color: var(--offwhite);
+}
+.gs24-subpage-nav-title-black {
+	display: flex;
+	color: var(--offwhite);
+	background-color: var(--offblack);
+}
+.gs24-subpage-nav-spacer {
+	flex-grow: 1;
+}
+.gs24-subpage-nav-link {
+	cursor: pointer;
+	color: var(--offwhite);
+	text-decoration: none;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 20px;
+	text-transform: uppercase;
+	font-size: 16px;
+	font-variation-settings: "wght" 600, "SRFF" 0;
+}
+.gs24-subpage-nav-link[data-active="1"] {
+	background-color: var(--offwhite);
+	color: var(--offblack);
+}
+.gs24-subpage-nav-link:hover {
+	opacity: .8;
+}
+.gs24-subpage-nav-link:active {
+	opacity: .5;
+}
+
+/* Menus */
+.gs24-subpage-menus {
+	position: absolute;
+	right: 0;
+	top: 60px;
+	width: 400px;
+	height: calc(100dvh - 60px);
+	background-color: var(--offwhite);
+}
+.gs24-subpage-menus[data-menu="none"] {
+	display: none;
+}
+.gs24-subpage-menus-close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 30px;
+	height: 30px;
+	z-index: 9;
+	fill: var(--offblack);
+	cursor: pointer;
+	background-color: var(--offwhite);
+	padding: 5px;
+}
+.gs24-subpage-menus-close svg {
+	width: 100%;
+	height: 100%;
+}
+.gs24-subpage-menus-close:hover {
+	background-color: var(--offblack);
+	fill: var(--offwhite)
+}
+.gs24-subpage-menus-close:active {
+	opacity: .5;
+}
+.gs24-subpage-menu {
+	display: none;
+	color: var(--offblack);
+	overflow-y: scroll;
+	height: 100%;
+}
+.gs24-subpage-menus[data-menu="about"] #gs24-subpage-about {
+	display: block;
+	padding: 40px 20px;
+	line-height: 1.4em;
+}
+.gs24-subpage-menus[data-menu="index"] #gs24-subpage-index {
+	display: block;
+	padding-bottom: 40px;
+}
+.gs24-subpage-index-letter {
+	margin-top: 20px;
+	font-size: 16px;
+	padding: 13px 20px 10px 20px;
+	text-transform: uppercase;
+	font-variation-settings: "wght" 600, "SRFF" 0;
+}
+#gs24-subpage-index a {
+	display: block;
+	color: var(--offblack);
+	font-size: 16px;
+	padding: 8px 20px 5px 20px;
+	text-decoration: none;
+}
+#gs24-subpage-index a:hover {
+	background-color: var(--offblack);
+	color: var(--offwhite);
+}
+#gs24-subpage-index a:active {
+	opacity: .5;
+}
+.gs24-subpage-menus[data-menu="departments"] #gs24-subpage-departments {
+	display: block;
+	padding: 20px 0;
+}
+.gs24-subpage-department {
+	display: block;
+	color: var(--offblack);
+	text-transform: uppercase;
+	font-size: 16px;
+	padding: 13px 20px 10px 20px;
+	font-variation-settings: "wght" 600, "SRFF" 0;
+	text-decoration: none;
+}
+.gs24-subpage-department:hover {
+	background-color: var(--offblack);
+	color: var(--offwhite);
+}
+.gs24-subpage-department:active {
+	opacity: .5;
+}
+
+/* Content */
+.gs24-subpage-container {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 40px;
+	align-items: start;
+	height: calc(100dvh - 60px);
+}
+
+/* Header */
+.gs24-subpage-header {
+	position: sticky;
+	top: 100px;
+	padding: 40px;
+}
+.gs24-subpage-header-title {
+	font-size: 48px;
+	margin-bottom: 24px;
+}
+.gs24-subpage-header-desc {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	line-height: 1.4em;
+}
+
+/* Students */
+.gs24-subpage-students {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 2px;
+	height: 100%;
+}
+.gs24-subpage-student {
+	color: var(--offwhite);
+	position: relative;
+}
+.gs24-subpage-student-name {
+	position: absolute;
+	top: 0;
+	left: 0;
+	max-width: 300px;
+	display: inline-block;
+	font-size: 16px;
+	letter-spacing: .03em;
+	padding: .3em .5em .1em .5em;
+	background-color: var(--offblack);
+	font-variation-settings: "wght" 600, "SRFF" 0;
+	text-transform: uppercase;
+}
+.gs24-subpage-student:hover .gs24-subpage-student-name {
+	background-color: var(--offwhite);
+	color: var(--offblack);
+}
+
+/* Student genart */
+.gs24-subpage-student-genart {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255,255,255,.1);
+	display: flex;
+	filter: grayscale(100%) brightness(50%);
+}
+.gs24-subpage-student:hover .gs24-subpage-student-genart {
+	filter: grayscale(0%) brightness(100%);
+}
+.gs24-subpage-student:active {
+	opacity: .5;
+}
+.gs24-subpage-student-genart-slice {
+	flex-grow: 1;
+	background-size: auto 100000%;
+	position: relative;
+	background-repeat: no-repeat;
+	transition: flex-grow 4s cubic-bezier(0.25, 1, 0.5, 1), background-size 2s cubic-bezier(0.7, 0, 0.84, 0);
+}
+.gs24-subpage-student-genart-slice[data-active="1"] {
+	flex-grow: 5;
+	background-size: auto 200%;
+	transition: flex-grow 4s cubic-bezier(0.25, 1, 0.5, 1), background-size 2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+@keyframes background-shift {
+	0% {
+		background-position: center;
+	}
+	25% {
+		background-position: right;
+	}
+	50% {
+		background-position: center;
+	}
+	75% {
+		background-position: left;
+	}
+	100% {
+		background-position: center;
+	}
+}
+
+/* Missing student link */
+.gs24-subpage-student[data-empty="1"] {
+	cursor: not-allowed;
+}
+.gs24-subpage-student[data-empty="1"]:hover .gs24-subpage-student-genart {
+	filter: grayscale(100%) brightness(50%);
+}
+.gs24-subpage-student[data-empty="1"]:hover .gs24-subpage-student-name {
+	background-color: var(--offblack);
+	color: var(--offwhite);
+}
+.gs24-subpage-student[data-empty="1"]:active {
+	opacity: 1;
+}
