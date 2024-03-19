@@ -7,7 +7,6 @@ fetch('../credits.json')
 		creditsJSON = json;
 		setImages();
 		generateImages();
-		generateStudents();
 	})
 
 // Set images for all genart
@@ -72,30 +71,5 @@ function generateImages() {
 	setTimeout(() => {
 		setImages();
 		generateImages();
-		regenerateStudents();
 	}, 5500)
-}
-
-// Table of contents
-function generateStudents() {
-	for (let student of document.querySelectorAll('.gs24-subpage-student')) {
-		const studentLabel = student.querySelector('.gs24-subpage-student-label');
-		studentLabel.style.animationDelay = `-${(Math.random()*2).toFixed(2)}s`;
-		student.innerHTML += `
-			<div class="gs24-subpage-student-background" style="background-image: url('../2023-images/${images[Math.floor(Math.random()*images.length)]}'); animation: background-shift 600s -${Math.random()*10}s infinite linear;"></div>
-		`;
-	}
-
-	// Header
-	const header = document.querySelector('.gs24-subpage-header-background');
-	header.style.backgroundImage = `url('../2023-images/${images[Math.floor(Math.random()*images.length)]}')`;
-}
-function regenerateStudents() {
-	for (let studentBackground of document.querySelectorAll('.gs24-subpage-student-background')) {
-		studentBackground.style.backgroundImage = `url('../2023-images/${images[Math.floor(Math.random()*images.length)]}')`;
-	}
-
-	// Header
-	const header = document.querySelector('.gs24-subpage-header-background');
-	header.style.backgroundImage = `url('../2023-images/${images[Math.floor(Math.random()*images.length)]}')`;
 }

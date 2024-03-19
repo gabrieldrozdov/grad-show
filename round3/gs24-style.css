@@ -1,7 +1,6 @@
 @font-face {
-	font-family: "Limkin";
-	src: url("fonts/limkin.ttf");
-	font-weight: 100 900;
+	font-family: "Uncut";
+	src: url("fonts/UncutPlan8-Variable.ttf");
 }
 @font-face {
 	font-family: "FT88 RISD";
@@ -38,8 +37,7 @@
 	box-sizing: border-box;
 }
 body {
-	font-family: "Limkin", sans-serif;
-	font-variation-settings: "wght" 300, "SRFF" 0;
+	font-family: "Uncut", sans-serif;
 	color: white;
 }
 
@@ -148,6 +146,7 @@ body {
 	display: none;
 }
 .gs24-menus-close {
+	border-radius: 50%;
 	position: absolute;
 	top: 10px;
 	right: 10px;
@@ -157,7 +156,7 @@ body {
 	fill: black;
 	cursor: pointer;
 	background-color: white;
-	padding: 5px;
+	padding: 8px;
 }
 .gs24-menus-close svg {
 	width: 100%;
@@ -703,9 +702,7 @@ body {
 /* ————————————————————— */
 .gs24-subpage-container {
 	width: 100vw;
-	display: grid;
 	min-height: 100dvh;
-	grid-template-columns: 1fr 2fr;
 }
 .gs24-subpage-content {
 	display: flex;
@@ -713,20 +710,15 @@ body {
 	min-height: 100%;
 }
 .gs24-subpage-header {
+	width: 480px;
+	min-height: 100dvh;
 	padding: 100px 40px 40px 40px;
 	flex-grow: 1;
 	position: relative;
-	background-color: rgba(255,255,255,.8);
-}
-.gs24-subpage-header-background {
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-size: 100000%;
-	position: absolute;
-	z-index: -1;
-	transition: background-image 1s;
+	background-color: rgba(255,255,255,.75);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	box-shadow: 10px 0 10px rgba(0,0,0,.25);
 }
 .gs24-subpage-title {
 	margin-bottom: 40px;
@@ -736,27 +728,36 @@ body {
 	font-weight: normal;
 	color: black;
 	letter-spacing: -.1em;
+	color: rgba(0,0,0,.75);
 }
 .gs24-subpage-desc {
-	color: black;
+	color: rgba(0,0,0,.75);
 	display: flex;
 	flex-direction: column;
 	gap: 18px;
 	font-size: 16px;
+	/* max-width: 400px; */
+	font-family: "Uncut";
+	text-wrap: pretty;
 }
 .gs24-subpage-desc p {
-	font-variation-settings: "wght" 500, "SRFF" 0;
+	font-weight: 900;
+	letter-spacing: -.05em;
+	line-height: 1.1em;
+	word-spacing: -.02em;
+	max-width: 480px;
 }
 
 /* Student links */
+.gs24-subpage-students {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	margin-top: 40px;
+}
 .gs24-subpage-student {
 	flex-shrink: 0;
 	padding: 20px;
-	font-style: italic;
-	text-decoration: none;
-	font-family: "FT88";
-	flex-grow: 1;
-	font-size: 14px;
 	display: flex;
 	gap: 10px;
 	align-items: center;
@@ -768,19 +769,7 @@ body {
 	overflow: hidden;
 	background-color: rgba(255,255,255,.5);
 }
-.gs24-subpage-student-background {
-	z-index: -1;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	flex-grow: 1;
-	background-size: auto 100000%;
-	background-repeat: no-repeat;
-	transition: flex-grow 2s cubic-bezier(0.25, 1, 0.5, 1), background-size 1s cubic-bezier(0.7, 0, 0.84, 0), background-image .5s;
-}
-.gs24-subpage-student-label {
+.gs24-subpage-student {
 	padding-top: .2em;
 	background-color: rgba(0,0,0,.5);
 	color: white;
@@ -789,47 +778,37 @@ body {
 	align-items: center;
 	justify-content: center;
 	border-radius: 20px;
-	padding: 0 20px 0 10px;
+	padding: 10px 20px;
 	box-shadow: 0 0 10px rgba(0,0,0,.5);
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
-	height: 40px;
 	fill: white;
-	animation: gs24-subpage-student 2s infinite alternate ease-in-out;
+	font-size: 14px;
+	font-style: italic;
+	text-decoration: none;
+	font-family: "FT88";
 }
-.gs24-subpage-student-label svg {
-	width: 15px;
-	height: 15px;
-}
-.gs24-subpage-student-label span {
+.gs24-subpage-student span {
 	padding-top: .2em;
 }
 .gs24-subpage-student:hover {
 	background-color: white;
+	color: black
 }
-.gs24-subpage-student:hover .gs24-subpage-student-label {
-	background-color: black;
-	color: white;
-}
-.gs24-subpage-student:active .gs24-subpage-student-label {
+.gs24-subpage-student:active {
 	opacity: .5;
-}
-@keyframes gs24-subpage-student {
-	from {
-		transform: translateX(-20px);
-	}
-	to {
-		transform: translateX(20px);
-	}
 }
 
 /* Subpage genart */
 .gs24-subpage-genart-container {
 	flex-grow: 1;
-	position: sticky;
+	position: fixed;
 	overflow: hidden;
 	height: 100vh;
 	top: 0;
+	left: 0;
+	width: 100vw;
+	z-index: -1;
 	display: grid;
 }
 .gs24-subpage-genart {
