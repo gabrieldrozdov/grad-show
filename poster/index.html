@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Grad Show | Poster Generator</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="poster-container">
+		<main class="poster" data-info="1" data-dept="1" data-logo="1" data-logo-style="tall" data-invert-info="1" data-invert-dept="1" data-invert-logo="1" data-background="1" data-blend="1" data-logo-motion="1">
+			<div class="poster-logo">
+				<div class="poster-logo-tall">
+					<span>R</span><span>I</span><span>S</span><span>D</span><br>
+					<span>G</span><span>R</span><span>A</span><span>D</span><br>
+					<span>S</span><span>H</span><span>O</span><span>W</span><br>
+					<span>2</span><span>0</span><span>2</span><span>4</span>
+				</div>
+				<div class="poster-logo-short">
+					<span>R</span><span>I</span><span>S</span><span>D</span><span>&nbsp;</span><span>G</span><span>R</span><span>A</span><span>D</span><br>
+					<span>S</span><span>H</span><span>O</span><span>W</span><span>&nbsp;</span><span>2</span><span>0</span><span>2</span><span>4</span>
+				</div>
+				<div class="poster-logo-long">
+					<span>R</span><span>I</span><span>S</span><span>D</span><span>&nbsp;</span><span>G</span><span>R</span><span>A</span><span>D</span><span>&nbsp;</span><span>S</span><span>H</span><span>O</span><span>W</span><span>&nbsp;</span><span>2</span><span>0</span><span>2</span><span>4</span>
+				</div>
+			</div>
+			<div class="poster-info-top">
+				<strong>Thursday May 23–Saturday June 1</strong><br>
+				<strong>June 1 10am–3pm</strong><br>
+				<strong>Otherwise open daily 12pm–5pm</strong><br>
+				RI Convention Center<br>
+				Halls C&D<br>
+				1 Sabin St.
+			</div>
+			<div class="poster-info-bottom">
+				<strong>Opening Reception</strong><br>
+				Wednesday May 22<br>
+				6–8pm<br>
+				risdgrad.show
+			</div>
+			<div class="poster-depts">
+				<div class="poster-dept">Architecture</div>
+				<div class="poster-dept">Ceramics</div>
+				<div class="poster-dept">Design Engineering</div>
+				<div class="poster-dept">Digital + Media</div>
+				<div class="poster-dept">Furniture Design</div>
+				<div class="poster-dept">Glass</div>
+				<div class="poster-dept">Architecture</div>
+				<div class="poster-dept">Global Arts and Cultures</div>
+				<div class="poster-dept">Graphic Design</div>
+				<div class="poster-dept">Industrial Design</div>
+				<div class="poster-dept">Interior Architecture</div>
+				<div class="poster-dept">Jewelry + Metalsmithing</div>
+				<div class="poster-dept">Landscape Architecture</div>
+				<div class="poster-dept">Nature-Culture-Sustainability Studies</div>
+				<div class="poster-dept">Painting</div>
+				<div class="poster-dept">Photography</div>
+				<div class="poster-dept">Printmaking</div>
+				<div class="poster-dept">Sculpture</div>
+				<div class="poster-dept">Teaching + Learning in Art + Design</div>
+				<div class="poster-dept">Textiles</div>
+			</div>
+			<div class="poster-background"></div>
+		</main>
+	</div>
+
+	<nav class="controls">
+		<div class="controls-header">
+			<h2>Controls</h2>
+		</div>
+
+		<div class="controls-group" id="group-logo-style" data-active="1">
+			<h3 onclick="toggleSection('#group-logo-style')">Logo Style</h3>
+			<div class="controls-toggle">
+				<label>Layout</label>
+				<div class="controls-toggle-multi">
+					<button onclick="setLogoStyle('tall');" data-active="1" id="logo-tall">Tall</button>
+					<button onclick="setLogoStyle('short');" data-active="0" id="logo-short">Short</button>
+					<button onclick="setLogoStyle('long');" data-active="0" id="logo-long">Long</button>
+				</div>
+			</div>
+			<div class="controls-toggle">
+				<label>Motion</label>
+				<button onclick="toggleLogoMotion();" id="logo-motion" data-active="1">On/Off</button>
+			</div>
+			<div class="controls-slider" id="logo-variation">
+				<label onclick="logoVariation(0)">Variation</label>
+				<input type="range" min="0" max="100" value="0" oninput="logoVariation(this.value);">
+				<input type="number" min="0" max="100" value="0" oninput="logoVariation(this.value);">
+			</div>
+		</div>
+
+		<div class="controls-group" id="group-content" data-active="1">
+			<h3 onclick="toggleSection('#group-content')">Content</h3>
+			<div class="controls-toggle">
+				<label>Info</label>
+				<div class="controls-toggle-multi">
+					<button onclick="toggleInfo();" id="content-info" data-active="1">Hide/Show</button>
+					<button onclick="invertInfo();" id="invert-info" data-active="1">Invert</button>
+				</div>
+			</div>
+			<div class="controls-toggle">
+				<label>Dept.</label>
+				<div class="controls-toggle-multi">
+					<button onclick="toggleDept();" id="content-dept" data-active="1">Hide/Show</button>
+					<button onclick="invertDept();" id="invert-dept" data-active="1">Invert</button>
+				</div>
+			</div>
+			<div class="controls-toggle">
+				<label>Logo</label>
+				<div class="controls-toggle-multi">
+					<button onclick="toggleLogo();" id="content-logo" data-active="1">Hide/Show</button>
+					<button onclick="invertLogo();" id="invert-logo" data-active="1">Invert</button>
+				</div>
+			</div>
+			<div class="controls-toggle">
+				<label>Blend Logo</label>
+				<button onclick="blendLogo();" id="blend-logo" data-active="1">On/Off</button>
+			</div>
+		</div>
+
+		<div class="controls-group" id="group-font-sizes" data-active="1">
+			<h3 onclick="toggleSection('#group-font-sizes')">Font Sizes</h3>
+			<div class="controls-slider" id="info-size">
+				<label onclick="infoSize(12);">Info (pt)</label>
+				<input type="range" min="1" max="250" value="12" step=".5" oninput="infoSize(this.value);">
+				<input type="number" min="1" max="250" value="12" step=".5" oninput="infoSize(this.value);">
+			</div>
+			<div class="controls-slider" id="dept-size">
+				<label onclick="deptSize(6);">Dept. (pt)</label>
+				<input type="range" min="1" max="200" value="6" step=".5" oninput="deptSize(this.value);">
+				<input type="number" min="1" max="200" value="6" step=".5" oninput="deptSize(this.value);">
+			</div>
+			<div class="controls-slider" id="logo-size">
+				<label onclick="logoSize(100);">Logo (pt)</label>
+				<input type="range" min="1" max="1250" value="144" step=".5" oninput="logoSize(this.value);">
+				<input type="number" min="1" max="1250" value="144" step=".5" oninput="logoSize(this.value);">
+			</div>
+		</div>
+
+		<div class="controls-group" id="group-spacing" data-active="1">
+			<h3 onclick="toggleSection('#group-spacing')">Spacing</h3>
+			<div class="controls-slider" id="info-inset">
+				<label>Info Inset</label>
+				<input type="range" min="0" max="50" value="5"  step=".1" oninput="infoInset(this.value);">
+				<input type="number" min="0" max="50" value="5"  step=".1" oninput="infoInset(this.value);">
+			</div>
+			<div class="controls-toggle">
+				<label>Dept. Position</label>
+				<button onclick="shuffleDept();">Shuffle</button>
+			</div>
+		</div>
+
+		<div class="controls-group" id="group-dimensions" data-active="1">
+			<h3 onclick="toggleSection('#group-dimensions')">Dimensions</h3>
+			<div class="controls-slider" id="width">
+				<label onclick="posterWidth(8.5);">Width (in)</label>
+				<input type="range" min="1" max="100" value="8.5" step=".005" oninput="posterWidth(this.value);">
+				<input type="number" min="1" max="100" value="8.5" step=".005" oninput="posterWidth(this.value);">
+			</div>
+			<div class="controls-slider" id="height">
+				<label onclick="posterHeight(11);">Height (in)</label>
+				<input type="range" min="1" max="100" value="11" step=".005" oninput="posterHeight(this.value);">
+				<input type="number" min="1" max="100" value="11" step=".005" oninput="posterHeight(this.value);">
+			</div>
+		</div>
+
+		<div class="controls-group" id="group-background" data-active="1">
+			<h3 onclick="toggleSection('#group-background')">Background</h3>
+			<div class="controls-toggle">
+				<label>Regenerate</label>
+				<div class="controls-toggle-multi">
+					<button onclick="generateBackground();">Single</button>
+					<button onclick="generateBackgroundMulti();">Multi</button>
+				</div>
+			</div>
+			<div class="controls-toggle">
+				<label>Motion</label>
+				<button onclick="toggleBackground()" data-active="1" id="background-motion">On/Off</button>
+			</div>
+			<div class="controls-slider" id="speed">
+				<label onclick="backgroundSpeed(100);">Speed</label>
+				<input type="range" min="10" max="300" value="100" oninput="backgroundSpeed(this.value);">
+				<input type="number" min="10" max="300" value="100" oninput="backgroundSpeed(this.value);">
+			</div>
+			<div class="controls-slider" id="scrub">
+				<label onclick="backgroundScrub(0);">Scrubbing (%)</label>
+				<input type="range" min="0" max="100" value="0" oninput="backgroundScrub(this.value);">
+				<input type="number" min="0" max="100" value="0" oninput="backgroundScrub(this.value);">
+			</div>
+			<div class="controls-slider" id="hue">
+				<label onclick="backgroundHue(0);">Hue (deg)</label>
+				<input type="range" min="0" max="360" value="0" oninput="backgroundHue(this.value);">
+				<input type="number" min="0" max="360" value="0" oninput="backgroundHue(this.value);">
+			</div>
+			<div class="controls-slider" id="saturation">
+				<label onclick="backgroundSaturation(100);">Saturation (%)</label>
+				<input type="range" min="0" max="400" value="100" oninput="backgroundSaturation(this.value);">
+				<input type="number" min="0" max="400" value="100" oninput="backgroundSaturation(this.value);">
+			</div>
+			<div class="controls-slider" id="brightness">
+				<label onclick="backgroundBrightness(100);">Brightness (%)</label>
+				<input type="range" min="0" max="400" value="100" oninput="backgroundBrightness(this.value);">
+				<input type="number" min="0" max="400" value="100" oninput="backgroundBrightness(this.value);">
+			</div>
+			<div class="controls-slider" id="invert">
+				<label onclick="backgroundInvert(0);">Invert (%)</label>
+				<input type="range" min="0" max="100" value="0" oninput="backgroundInvert(this.value);">
+				<input type="number" min="0" max="100" value="0" oninput="backgroundInvert(this.value);">
+			</div>
+		</div>
+
+		<div class="controls-group" id="group-preview" data-active="1">
+			<h3 onclick="toggleSection('#group-preview')">Preview</h3>
+			<div class="controls-slider" id="zoom">
+				<label onclick="previewZoom(75)">Zoom</label>
+				<input type="range" min="1" max="200" value="75" oninput="previewZoom(this.value);">
+				<input type="number" min="1" max="200" value="75" oninput="previewZoom(this.value);">
+			</div>
+			<div class="controls-slider" id="xpos">
+				<label onclick="previewXPos(0)">X Position</label>
+				<input type="range" min="-100" max="100" value="0" oninput="previewXPos(this.value);">
+				<input type="number" min="-100" max="100" value="0" oninput="previewXPos(this.value);">
+			</div>
+			<div class="controls-slider" id="ypos">
+				<label onclick="previewYPos(0)">Y Position</label>
+				<input type="range" min="-100" max="100" value="0" oninput="previewYPos(this.value);">
+				<input type="number" min="-100" max="100" value="0" oninput="previewYPos(this.value);">
+			</div>
+		</div>
+
+		<div class="controls-footer">
+			<div class="controls-footer-group">
+				<button onclick="collapseAll();">Collapse All</button>
+				<button onclick="expandAll();">Expand All</button>
+			</div>
+			<button onclick="window.print();">Print</button>
+		</div>
+	</nav>
+
+	<script src="script.js"></script>
+</body>
+</html>

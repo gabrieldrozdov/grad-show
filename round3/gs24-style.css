@@ -26,6 +26,11 @@
 	src: url("fonts/FT88-Italic.otf");
 	font-style: italic;
 }
+@font-face {
+	font-family: "Limkin Pixel";
+	src: url("fonts/TMT-LimkinPixelVF.ttf");
+	font-weight: 100 900;
+}
 :root {
 	--offblack: #1b1b1b;
 	--offwhite: #f1f1f1;
@@ -49,7 +54,7 @@ body {
 .gs24-nav {
 	display: flex;
 	align-items: center;
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,.75);
 	position: fixed;
 	top: 10px;
 	left: 10px;
@@ -57,7 +62,7 @@ body {
 	border-radius: 20px;
 	z-index: 9;
 	height: 40px;
-	box-shadow: 0 0 10px rgba(0,0,0,.5);
+	box-shadow: 0 0 10px rgba(0,0,0,.75);
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
 	padding: 0 20px;
@@ -137,10 +142,10 @@ body {
 	z-index: 5;
 	border-radius: 20px;
 	height: calc(100dvh - 70px);
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,.75);
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
-	box-shadow: -10px 0 10px rgba(0,0,0,.5);
+	box-shadow: -10px 0 10px rgba(0,0,0,.75);
 }
 .gs24-menus[data-menu="none"] {
 	display: none;
@@ -332,7 +337,7 @@ body {
 	z-index: 9;
 	animation: gs24-home-header-arrow 1s infinite alternate ease-in-out;
 	padding: 10px;
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,.75);
 	border-radius: 20px;
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
@@ -504,7 +509,7 @@ body {
 	text-decoration: none;
 	color: black;
 	fill: black;
-	background-color: rgba(255,255,255,.5);
+	background-color: rgba(255,255,255,.75);
 	backdrop-filter: blur(5px);
 	box-shadow: 0 0 10px rgba(0,0,0,.25);
 	-webkit-backdrop-filter: blur(5px);
@@ -522,7 +527,7 @@ body {
 	font-style: italic;
 	color: white;
 	fill: white;
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,.75);
 	box-shadow: 0 0 10px rgba(0,0,0,.25);
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
@@ -563,7 +568,7 @@ body {
 	font-size: 14px;
 	font-family: "FT88", sans-serif;
 	letter-spacing: -.1em;
-	background-color: rgba(255,255,255,.5);
+	background-color: rgba(255,255,255,.75);
 }
 .gs24-home-genart-control:hover {
 	background-color: white;
@@ -586,7 +591,7 @@ body {
 	font-style: italic;
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,.75);
 	color: white;
 	font-size: 14px;
 	border-radius: 20px;
@@ -638,9 +643,10 @@ body {
 	text-align: center;
 	position: relative;
 	text-transform: uppercase;
-	letter-spacing: -.05em;
+	/* letter-spacing: -.05em; */
 	overflow: hidden;
-	background-color: rgba(255,255,255,.5);
+	-webkit-text-stroke: .5px white;
+	background-color: rgba(255,255,255,.75);
 }
 .gs24-toc-background {
 	z-index: -1;
@@ -656,7 +662,7 @@ body {
 }
 .gs24-toc-link-label {
 	padding-top: .2em;
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,.75);
 	color: white;
 	display: flex;
 	gap: 20px;
@@ -664,7 +670,7 @@ body {
 	justify-content: center;
 	border-radius: 20px;
 	padding: 0 20px 0 10px;
-	box-shadow: 0 0 10px rgba(0,0,0,.5);
+	box-shadow: 0 0 10px rgba(0,0,0,.75);
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
 	height: 40px;
@@ -735,16 +741,16 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 18px;
-	font-size: 16px;
+	font-size: 18px;
 	/* max-width: 400px; */
-	font-family: "Uncut";
+	font-family: "Limkin Pixel";
+	font-weight: 500;
+	font-variation-settings: "wght" 500;
 	text-wrap: pretty;
 }
 .gs24-subpage-desc p {
-	font-weight: 900;
-	letter-spacing: -.05em;
-	line-height: 1.1em;
-	word-spacing: -.02em;
+	line-height: 1.3em;
+	word-spacing: -.05em;
 	max-width: 480px;
 }
 
@@ -767,11 +773,11 @@ body {
 	text-transform: uppercase;
 	letter-spacing: -.05em;
 	overflow: hidden;
-	background-color: rgba(255,255,255,.5);
+	background-color: rgba(255,255,255,.75);
 }
 .gs24-subpage-student {
 	padding-top: .2em;
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,.75);
 	color: white;
 	display: flex;
 	gap: 20px;
@@ -779,7 +785,7 @@ body {
 	justify-content: center;
 	border-radius: 20px;
 	padding: 10px 20px;
-	box-shadow: 0 0 10px rgba(0,0,0,.5);
+	box-shadow: 0 0 10px rgba(0,0,0,.75);
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
 	fill: white;
