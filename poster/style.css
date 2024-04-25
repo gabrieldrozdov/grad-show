@@ -242,11 +242,9 @@ body {
 }
 @keyframes poster-dept {
 	from {
-		opacity: 1;
 		transform: translate(-50%, -50%) rotate(-5deg);
 	}
 	to {
-		opacity: .75;
 		transform: translate(-50%, -50%) rotate(5deg);
 	}
 }

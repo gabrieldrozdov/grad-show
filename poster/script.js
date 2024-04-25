@@ -369,6 +369,14 @@ function titleSize(value) {
 	number.value = value;
 	poster.style.setProperty("--title-size", value+"pt");
 }
+function logoSize(value) {
+	const poster = document.querySelector('.poster');
+	const slider = document.querySelector('#logo-size [type="range"]');
+	slider.value = value;
+	const number = document.querySelector('#logo-size [type="number"]');
+	number.value = value;
+	poster.style.setProperty("--logo-size", value+"in");
+}
 
 // Info inset
 function infoInset(value) {
