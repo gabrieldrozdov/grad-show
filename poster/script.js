@@ -61,7 +61,7 @@ function generateBackgroundMulti() {
 		images.push(`img${Math.round(Math.random()*145)}.jpg`);
 	}
 	let temp = "";
-	for (let i=0; i<250; i++) {
+	for (let i=0; i<500; i++) {
 		let randomImage = images[Math.floor(Math.random()*images.length)];
 		temp += `<div style="--offset: ${Math.random()*10}%; background-image: url('assets/images/${randomImage}'); --speed-offset: ${Math.random()*10}s"></div>`;
 	}
@@ -385,7 +385,7 @@ function infoInset(value) {
 	slider.value = value;
 	const number = document.querySelector('#info-inset [type="number"]');
 	number.value = value;
-	poster.style.setProperty("--info-inset", value+"%");
+	poster.style.setProperty("--info-inset", value+"in");
 }
 
 // Department positions
@@ -517,3 +517,168 @@ function initializeDept() {
 	}
 }
 initializeDept();
+
+// Presets
+function generatePreset(format, orientation) {
+	let settingsPosterWidth,
+		settingsPosterHeight,
+		settingsInfoSize,
+		settingsDeptSize,
+		settingsTitleSize,
+		settingsLogoSize,
+		settingsInfoInset,
+		settingsTitleStyle,
+		settingsPreviewZoom,
+		settingsVignetteInset,
+		settingsVignetteOpacity,
+		settingsVignetteRotation;
+	if (format == "8.5x11") {
+		if (orientation == "portrait") {
+			settingsPosterWidth = "8.5";
+			settingsPosterHeight = "11";
+			settingsTitleStyle = "tall";
+			settingsTitleSize = "144";
+		} else if (orientation == "landscape") {
+			settingsPosterWidth = "11";
+			settingsPosterHeight = "8.5";
+			settingsTitleStyle = "short";
+			settingsTitleSize = "120";
+		}
+		settingsInfoSize = "12";
+		settingsDeptSize = "6";
+		settingsLogoSize = "1";
+		settingsInfoInset = ".5";
+		settingsPreviewZoom = "75";
+		settingsVignetteInset = "15";
+		settingsVignetteOpacity = ".5";
+		settingsVignetteRotation = "110";
+
+	} else if (format == "11x17") {
+		if (orientation == "portrait") {
+			settingsPosterWidth = "11";
+			settingsPosterHeight = "17";
+			settingsTitleStyle = "tall";
+			settingsTitleSize = "200";
+		} else if (orientation == "landscape") {
+			settingsPosterWidth = "17";
+			settingsPosterHeight = "11";
+			settingsTitleStyle = "short";
+			settingsTitleSize = "190";
+		}
+		settingsInfoSize = "16";
+		settingsDeptSize = "9";
+		settingsLogoSize = "1.4";
+		settingsInfoInset = ".6";
+		settingsPreviewZoom = "50";
+		settingsVignetteInset = "15";
+		settingsVignetteOpacity = ".5";
+		settingsVignetteRotation = "110";
+
+	} else if (format == "24x36") {
+		if (orientation == "portrait") {
+			settingsPosterWidth = "24";
+			settingsPosterHeight = "36";
+			settingsTitleStyle = "tall";
+			settingsTitleSize = "500";
+		} else if (orientation == "landscape") {
+			settingsPosterWidth = "36";
+			settingsPosterHeight = "24";
+			settingsTitleStyle = "short";
+			settingsTitleSize = "400";
+		}
+		settingsInfoSize = "24";
+		settingsDeptSize = "16";
+		settingsLogoSize = "1.8";
+		settingsInfoInset = ".6";
+		settingsPreviewZoom = "23";
+		settingsVignetteInset = "15";
+		settingsVignetteOpacity = ".5";
+		settingsVignetteRotation = "110";
+
+	} else if (format == "36x50") {
+		if (orientation == "portrait") {
+			settingsPosterWidth = "36";
+			settingsPosterHeight = "50";
+			settingsTitleStyle = "tall";
+			settingsTitleSize = "750";
+		} else if (orientation == "landscape") {
+			settingsPosterWidth = "50";
+			settingsPosterHeight = "36";
+			settingsTitleStyle = "short";
+			settingsTitleSize = "600";
+		}
+		settingsInfoSize = "32";
+		settingsDeptSize = "20";
+		settingsLogoSize = "2.5";
+		settingsInfoInset = ".6";
+		settingsPreviewZoom = "15";
+		settingsVignetteInset = "15";
+		settingsVignetteOpacity = ".5";
+		settingsVignetteRotation = "110";
+
+	} else if (format == "6x60") {
+		if (orientation == "portrait") {
+			settingsPosterWidth = "6";
+			settingsPosterHeight = "60";
+			settingsTitleStyle = "tall";
+			settingsTitleSize = "144";
+		} else if (orientation == "landscape") {
+			settingsPosterWidth = "60";
+			settingsPosterHeight = "6";
+			settingsTitleStyle = "long";
+			settingsTitleSize = "225";
+		}
+		settingsInfoSize = "12";
+		settingsDeptSize = "6";
+		settingsLogoSize = "1";
+		settingsInfoInset = ".5";
+		settingsPreviewZoom = "15";
+		settingsVignetteInset = "15";
+		settingsVignetteOpacity = ".5";
+		settingsVignetteRotation = "110";
+
+	} else if (format == "30x30") {
+		settingsPosterWidth = "30";
+		settingsPosterHeight = "30";
+		settingsTitleStyle = "tall";
+		settingsTitleSize = "400";
+		settingsInfoSize = "24";
+		settingsDeptSize = "16";
+		settingsLogoSize = "1.8";
+		settingsInfoInset = ".6";
+		settingsPreviewZoom = "23";
+		settingsVignetteInset = "15";
+		settingsVignetteOpacity = ".6";
+		settingsVignetteRotation = "100";
+
+	} else if (format == "6x6") {
+		settingsPosterWidth = "6";
+		settingsPosterHeight = "6";
+		settingsTitleStyle = "short";
+		settingsTitleSize = "75";
+		settingsInfoSize = "11";
+		settingsDeptSize = "6";
+		settingsLogoSize = ".7";
+		settingsInfoInset = ".2";
+		settingsPreviewZoom = "100";
+		settingsVignetteInset = "15";
+		settingsVignetteOpacity = ".6";
+		settingsVignetteRotation = "100";
+	}
+
+	posterWidth(settingsPosterWidth);
+	posterHeight(settingsPosterHeight);
+	infoSize(settingsInfoSize);
+	deptSize(settingsDeptSize);
+	titleSize(settingsTitleSize);
+	logoSize(settingsLogoSize);
+	infoInset(settingsInfoInset);
+	setTitleStyle(settingsTitleStyle);
+	shuffleDept();
+	previewZoom(settingsPreviewZoom);
+	previewXPos(0);
+	previewYPos(0);
+	vignetteInset(settingsVignetteInset);
+	vignetteOpacity(settingsVignetteOpacity);
+	vignetteRotation(settingsVignetteRotation);
+}

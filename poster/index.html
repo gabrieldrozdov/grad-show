@@ -68,6 +68,57 @@
 		</div>
 
 		<nav class="controls">
+			<div class="controls-group" id="group-presets" data-active="1">
+				<h2 onclick="toggleSection('#group-presets')">Presets</h2>
+				<div class="controls-toggle">
+					<label>8.5" x 11"</label>
+					<div class="controls-toggle-multi">
+						<button onclick="generatePreset('8.5x11', 'portrait');">Portrait</button>
+						<button onclick="generatePreset('8.5x11', 'landscape');">Landscape</button>
+					</div>
+				</div>
+				<div class="controls-toggle">
+					<label>11" x 17"</label>
+					<div class="controls-toggle-multi">
+						<button onclick="generatePreset('11x17', 'portrait');">Portrait</button>
+						<button onclick="generatePreset('11x17', 'landscape');">Landscape</button>
+					</div>
+				</div>
+				<div class="controls-toggle">
+					<label>24" x 36"</label>
+					<div class="controls-toggle-multi">
+						<button onclick="generatePreset('24x36', 'portrait');">Portrait</button>
+						<button onclick="generatePreset('24x36', 'landscape');">Landscape</button>
+					</div>
+				</div>
+				<div class="controls-toggle">
+					<label>36" x 50"</label>
+					<div class="controls-toggle-multi">
+						<button onclick="generatePreset('36x50', 'portrait');">Portrait</button>
+						<button onclick="generatePreset('36x50', 'landscape');">Landscape</button>
+					</div>
+				</div>
+				<div class="controls-toggle">
+					<label>6" x 60"</label>
+					<div class="controls-toggle-multi">
+						<button onclick="generatePreset('6x60', 'portrait');">Portrait</button>
+						<button onclick="generatePreset('6x60', 'landscape');">Landscape</button>
+					</div>
+				</div>
+				<div class="controls-toggle">
+					<label>30" x 30"</label>
+					<div class="controls-toggle-multi">
+						<button onclick="generatePreset('30x30');">Square</button>
+					</div>
+				</div>
+				<div class="controls-toggle">
+					<label>6" x 6"</label>
+					<div class="controls-toggle-multi">
+						<button onclick="generatePreset('6x6');">Square</button>
+					</div>
+				</div>
+			</div>
+
 			<div class="controls-group" id="group-title-style" data-active="1">
 				<h2 onclick="toggleSection('#group-title-style')">Title Style</h2>
 				<div class="controls-toggle">
@@ -145,7 +196,7 @@
 					<input type="number" min="1" max="200" value="6" step=".5" oninput="deptSize(this.value);">
 				</div>
 				<div class="controls-slider" id="title-size">
-					<label onclick="titleSize(100);">Title (pt)</label>
+					<label onclick="titleSize(144);">Title (pt)</label>
 					<input type="range" min="1" max="1250" value="144" step=".5" oninput="titleSize(this.value);">
 					<input type="number" min="1" max="1250" value="144" step=".5" oninput="titleSize(this.value);">
 				</div>
@@ -159,9 +210,9 @@
 			<div class="controls-group" id="group-spacing" data-active="1">
 				<h2 onclick="toggleSection('#group-spacing')">Spacing</h2>
 				<div class="controls-slider" id="info-inset">
-					<label oninput="infoInset(1);">Info Inset (in)</label>
-					<input type="range" min="0" max="100" value=".4"  step=".1" oninput="infoInset(this.value);">
-					<input type="number" min="0" max="100" value=".4"  step=".1" oninput="infoInset(this.value);">
+					<label oninput="infoInset(.5);">Info Inset (in)</label>
+					<input type="range" min="0" max="100" value=".5"  step=".1" oninput="infoInset(this.value);">
+					<input type="number" min="0" max="100" value=".5"  step=".1" oninput="infoInset(this.value);">
 				</div>
 				<div class="controls-toggle">
 					<label>Dept. Position</label>
