@@ -29,14 +29,14 @@ function generateImages() {
 	let totalDivisions = Math.round(Math.random()*6+4);
 	for (let col=0; col<totalDivisions; col++) {
 		// Set random number of rows for col
-		let rows = Math.round(Math.random()*12+4);
+		let rows = Math.round(Math.random()*4+4);
 		homeGenartTemp += `<div class="gs24-home-genart-col">`;
 	
 		// Generate rows in column
 		for (let row=0; row<rows; row++) {
 	
 			// Generate slices in row
-			let slices = Math.round(Math.random()*12+4);
+			let slices = Math.round(Math.random()*4+4);
 			let slicesTemp = '';
 			const randomImage = images[Math.floor(Math.random()*images.length)];
 

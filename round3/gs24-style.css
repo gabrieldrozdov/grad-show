@@ -42,7 +42,6 @@
 	box-sizing: border-box;
 }
 body {
-	font-family: "Uncut", sans-serif;
 	color: white;
 }
 
@@ -54,7 +53,7 @@ body {
 .gs24-nav {
 	display: flex;
 	align-items: center;
-	background-color: rgba(0,0,0,.75);
+	background-color: rgba(0,0,0,.85);
 	position: fixed;
 	top: 10px;
 	left: 10px;
@@ -62,13 +61,13 @@ body {
 	border-radius: 20px;
 	z-index: 9;
 	height: 40px;
-	box-shadow: 0 0 10px rgba(0,0,0,.75);
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
+	box-shadow: 0 0 2px rgba(0,0,0,.85);
 	padding: 0 20px;
 	padding: 4px;
 	gap: 4px;
 	transition: opacity 1s;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
 }
 .gs24-nav[data-hidden="1"] {
 	opacity: 0;
@@ -83,7 +82,7 @@ body {
 	letter-spacing: .2em;
 	text-decoration: none;
 	display: flex;
-	padding: 0 calc(20px - .2em) 0 20px;
+	padding: .05em calc(20px - .2em) 0 20px;
 	transform-origin: left;
 	border-radius: 20px;
 }
@@ -132,6 +131,27 @@ body {
 .gs24-nav-link:active {
 	opacity: .5;
 }
+@media only screen and (max-width: 800px) {
+	.gs24-nav {
+		height: 70px;
+		flex-wrap: wrap;
+		gap: 0;
+		top: 5px;
+		left: 5px;
+		width: calc(100vw - 10px);
+	}
+	.gs24-nav-title {
+		height: 30px;
+		width: 100%;
+	}
+	.gs24-nav-spacer {
+		display: none;
+	}
+	.gs24-nav-link {
+		flex-grow: 1;
+		height: 30px;
+	}
+}
 
 /* Menus */
 .gs24-menus {
@@ -142,10 +162,10 @@ body {
 	z-index: 5;
 	border-radius: 20px;
 	height: calc(100dvh - 70px);
-	background-color: rgba(0,0,0,.75);
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
-	box-shadow: -10px 0 10px rgba(0,0,0,.75);
+	background-color: rgba(0,0,0,.85);
+	box-shadow: 0 0 2px rgba(0,0,0,.85);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
 }
 .gs24-menus[data-menu="none"] {
 	display: none;
@@ -179,11 +199,95 @@ body {
 	color: white;
 	overflow-y: scroll;
 	height: 100%;
+	font-family: "Limkin Pixel", sans-serif;
 }
 .gs24-menus[data-menu="about"] #gs24-about {
 	display: block;
 	padding: 40px 20px;
 	line-height: 1.4em;
+}
+.gs24-about-links {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	margin-top: 30px;
+}
+.gs24-about-links a {
+	background-color: white;
+	border-radius: 20px;
+	padding: .4em 10px .3em 10px;
+	line-height: 1.4em;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+}
+.gs24-about-links a:hover {
+	opacity: .75;
+}
+.gs24-about-links a:active {
+	opacity: .5;
+}
+.gs24-about-credits {
+	border: 1px solid white;
+	border-radius: 20px;
+	padding: .4em 10px .3em 10px;
+	line-height: 1.4em;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	color: white;
+	margin-top: 10px;
+}
+.gs24-about-credits:hover {
+	opacity: .75;
+}
+.gs24-about-credits:active {
+	opacity: .5;
+}
+.gs24-about-past-title {
+	font-family: "FT88", sans-serif;
+	font-style: italic;
+	letter-spacing: -0.05em;
+	text-transform: uppercase;
+	margin-top: 30px;
+}
+.gs24-about-past {
+	margin-top: 4px;
+	gap: 4px;
+	display: flex;
+	flex-wrap: wrap;
+}
+.gs24-about-past a {
+	background-color: white;
+	border-radius: 20px;
+	padding: .2em 10px .1em 10px;
+	line-height: 1.4em;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+}
+.gs24-about-past a:hover {
+	opacity: .75;
+}
+.gs24-about-past a:active {
+	opacity: .5;
+}
+.gs24-about-logo {
+	width: 100px;
+	height: 100px;
+	margin-top: 30px;
+	display: block;
+	fill: white;
+}
+.gs24-about-logo svg {
+	width: 100px;
+	height: 100px;
+}
+.gs24-about-logo:hover {
+	opacity: .75;
+}
+.gs24-about-logo:active {
+	opacity: .5;
 }
 .gs24-menus[data-menu="index"] #gs24-index {
 	display: block;
@@ -204,10 +308,28 @@ body {
 	text-decoration: none;
 }
 #gs24-index a:hover {
-	background-color: black;
-	color: white;
+	background-color: white;
+	color: black;
 }
 #gs24-index a:active {
+	opacity: .5;
+}
+#gs24-departments a {
+	display: block;
+	color: white;
+	font-size: 16px;
+	padding: .8em 20px .6em 20px;
+	text-decoration: none;
+	font-family: "FT88", sans-serif;
+	font-style: italic;
+	letter-spacing: -0.05em;
+	text-transform: uppercase;
+}
+#gs24-departments a:hover {
+	background-color: white;
+	color: black;
+}
+#gs24-departments a:active {
 	opacity: .5;
 }
 .gs24-menus[data-menu="departments"] #gs24-departments {
@@ -229,6 +351,14 @@ body {
 }
 .gs24-department:active {
 	opacity: .5;
+}
+@media only screen and (max-width: 800px) {
+	.gs24-menus {
+		right: 5px;
+		top: 80px;
+		width: calc(100vw - 10px);
+		height: calc(100dvh - 85px);
+	}
 }
 
 /* ————————————————————— */
@@ -327,6 +457,15 @@ body {
 	background-repeat: no-repeat;
 	transition: flex-grow 2s cubic-bezier(0.25, 1, 0.5, 1), background-size 1s cubic-bezier(0.7, 0, 0.84, 0);
 }
+@media only screen and (max-width: 700px) {
+	.gs24-home-title {
+		font-size: 25vw;
+		grid-template-columns: 1fr;
+	}
+	.gs24-home-title-background {
+		width: 200%;
+	}
+}
 
 /* Header arrow */
 .gs24-home-header-arrow {
@@ -337,10 +476,8 @@ body {
 	z-index: 9;
 	animation: gs24-home-header-arrow 1s infinite alternate ease-in-out;
 	padding: 10px;
-	background-color: rgba(0,0,0,.75);
+	background-color: rgba(0,0,0,.85);
 	border-radius: 20px;
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
 	display: flex;
 	align-items: center;
 	gap: 20px;
@@ -387,10 +524,22 @@ body {
 	display: grid;
 	grid-template-columns: 2fr 1fr;
 	min-height: 100svh;
+	box-shadow: 0 0 20px rgba(0,0,0,.5);
 	background-color: black;
 	position: relative;
 	z-index: 1;
 }
+@media only screen and (max-width: 1200px) {
+	.gs24-home-body {
+		grid-template-columns: 1.5fr 1fr;
+	}
+}
+@media only screen and (max-width: 800px) {
+	.gs24-home-body {
+		grid-template-columns: 1fr;
+	}
+}
+
 
 /* Generative artwork container */
 .gs24-home-genart-container {
@@ -400,6 +549,13 @@ body {
 	height: 100vh;
 	top: 0;
 	display: grid;
+}
+@media only screen and (max-width: 800px) {
+	.gs24-home-genart-container {
+		position: static;
+		order: 1;
+		height: 80vh;
+	}
 }
 
 /* Generative artwork */
@@ -509,10 +665,8 @@ body {
 	text-decoration: none;
 	color: black;
 	fill: black;
-	background-color: rgba(255,255,255,.75);
-	backdrop-filter: blur(5px);
-	box-shadow: 0 0 10px rgba(0,0,0,.25);
-	-webkit-backdrop-filter: blur(5px);
+	background-color: rgba(255,255,255,.85);
+	box-shadow: 0 0 2px rgba(0,0,0,.25);
 }
 .gs24-home-credit-dept {
 	border-radius: 20px;
@@ -527,10 +681,8 @@ body {
 	font-style: italic;
 	color: white;
 	fill: white;
-	background-color: rgba(0,0,0,.75);
-	box-shadow: 0 0 10px rgba(0,0,0,.25);
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
+	background-color: rgba(0,0,0,.85);
+	box-shadow: 0 0 2px rgba(0,0,0,.25);
 }
 .gs24-home-credit-name:hover, .gs24-home-credit-dept:hover {
 	background-color: white;
@@ -555,12 +707,10 @@ body {
 .gs24-home-genart-control {
 	display: flex;
 	cursor: pointer;
-	box-shadow: 0 0 10px rgba(0,0,0,.25);
+	box-shadow: 0 0 2px rgba(0,0,0,.25);
 	align-items: center;
 	border-radius: 20px;
 	padding: 8px 10px 7px 10px;
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
 	border: unset;
 	gap: 10px;
 	fill: black;
@@ -568,7 +718,7 @@ body {
 	font-size: 14px;
 	font-family: "FT88", sans-serif;
 	letter-spacing: -.1em;
-	background-color: rgba(255,255,255,.75);
+	background-color: rgba(255,255,255,.85);
 }
 .gs24-home-genart-control:hover {
 	background-color: white;
@@ -579,6 +729,8 @@ body {
 .gs24-home-genart-controls-subgroup {
 	display: flex;
 	gap: 2px;
+	flex-wrap: wrap;
+	white-space: nowrap;
 }
 .gs24-home-genart-controls-subgroup-title {
 	color: black;
@@ -589,13 +741,11 @@ body {
 	font-weight: normal;
 	letter-spacing: -.1em;
 	font-style: italic;
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
-	background-color: rgba(0,0,0,.75);
+	background-color: rgba(0,0,0,.85);
 	color: white;
 	font-size: 14px;
 	border-radius: 20px;
-	box-shadow: 0 0 10px rgba(0,0,0,.25);
+	box-shadow: 0 0 2px rgba(0,0,0,.25);
 }
 
 /* Genart modes */
@@ -643,10 +793,9 @@ body {
 	text-align: center;
 	position: relative;
 	text-transform: uppercase;
-	/* letter-spacing: -.05em; */
 	overflow: hidden;
 	-webkit-text-stroke: .5px white;
-	background-color: rgba(255,255,255,.75);
+	background-color: rgba(255,255,255,.85);
 }
 .gs24-toc-background {
 	z-index: -1;
@@ -662,7 +811,7 @@ body {
 }
 .gs24-toc-link-label {
 	padding-top: .2em;
-	background-color: rgba(0,0,0,.75);
+	background-color: rgba(0,0,0,.85);
 	color: white;
 	display: flex;
 	gap: 20px;
@@ -670,9 +819,7 @@ body {
 	justify-content: center;
 	border-radius: 20px;
 	padding: 0 20px 0 10px;
-	box-shadow: 0 0 10px rgba(0,0,0,.75);
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
+	box-shadow: 0 0 2px rgba(0,0,0,.85);
 	height: 40px;
 	fill: white;
 	animation: gs24-toc-link 2s infinite alternate ease-in-out;
@@ -721,10 +868,8 @@ body {
 	padding: 100px 40px 40px 40px;
 	flex-grow: 1;
 	position: relative;
-	background-color: rgba(255,255,255,.75);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-	box-shadow: 10px 0 10px rgba(0,0,0,.25);
+	background-color: rgba(255,255,255,.85);
+	box-shadow: 0 0 2px rgba(0,0,0,.25);
 }
 .gs24-subpage-title {
 	margin-bottom: 40px;
@@ -733,16 +878,15 @@ body {
 	font-style: italic;
 	font-weight: normal;
 	color: black;
-	letter-spacing: -.1em;
-	color: rgba(0,0,0,.75);
+	letter-spacing: -.15em;
+	color: rgba(0,0,0,.85);
 }
 .gs24-subpage-desc {
-	color: rgba(0,0,0,.75);
+	color: rgba(0,0,0,.85);
 	display: flex;
 	flex-direction: column;
 	gap: 18px;
 	font-size: 18px;
-	/* max-width: 400px; */
 	font-family: "Limkin Pixel";
 	font-weight: 500;
 	font-variation-settings: "wght" 500;
@@ -752,6 +896,15 @@ body {
 	line-height: 1.3em;
 	word-spacing: -.05em;
 	max-width: 480px;
+}
+@media only screen and (max-width: 540px) {
+	.gs24-subpage-header {
+		width: 100%;
+		padding: 120px 20px 20px 20px;
+	}
+	.gs24-subpage-title {
+		font-size: 32px;
+	}
 }
 
 /* Student links */
@@ -773,11 +926,11 @@ body {
 	text-transform: uppercase;
 	letter-spacing: -.05em;
 	overflow: hidden;
-	background-color: rgba(255,255,255,.75);
+	background-color: rgba(255,255,255,.85);
 }
 .gs24-subpage-student {
 	padding-top: .2em;
-	background-color: rgba(0,0,0,.75);
+	background-color: rgba(0,0,0,.85);
 	color: white;
 	display: flex;
 	gap: 20px;
@@ -785,9 +938,7 @@ body {
 	justify-content: center;
 	border-radius: 20px;
 	padding: 10px 20px;
-	box-shadow: 0 0 10px rgba(0,0,0,.75);
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
+	box-shadow: 0 0 2px rgba(0,0,0,.85);
 	fill: white;
 	font-size: 14px;
 	font-style: italic;
@@ -867,4 +1018,178 @@ body {
 	width: 100%;
 	height: 100%;
 	background-color: white;
+}
+
+
+/* ————————————————————— */
+/* FOOTER */
+/* ————————————————————— */
+.gs24-footer {
+	position: relative;
+}
+
+/* Footer title */
+.gs24-footer-title {
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 200px;
+	position: relative;
+	overflow: hidden;
+	display: block;
+	color: white;
+}
+.gs24-footer-title-text {
+	font-size: calc(12.5vw / 2);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: "FT88 RISD", sans-serif;
+	text-transform: uppercase;
+	line-height: 1em;
+	letter-spacing: 0.1em;
+	width: min-content;
+	padding-left: .1em;
+	padding-top: .1em;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	column-gap: .2em;
+	z-index: 2;
+	mix-blend-mode: difference;
+}
+.gs24-footer-title span {
+	animation: gs24-footer-title 1s 1.5s infinite ease-in-out alternate;
+}
+@keyframes gs24-footer-title {
+	from {
+		font-variation-settings: "DISP" 0;
+	}
+	to {
+		font-variation-settings: "DISP" 100;
+	}
+}
+.gs24-footer-title-background-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: .5;
+	background-color: black;
+	transition: opacity .5s;
+}
+.gs24-footer-title:hover .gs24-footer-title-background-overlay {
+	opacity: 0;
+}
+.gs24-footer-title:active .gs24-footer-title-background-overlay {
+	opacity: 0.25;
+}
+.gs24-footer-title-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+}
+.gs24-footer-title-background-col {
+	height: 100%;
+	flex-grow: 1;
+	background-size: auto 10000%;
+	position: relative;
+	background-repeat: no-repeat;
+	transition: flex-grow 2s cubic-bezier(0.25, 1, 0.5, 1), background-size 1s cubic-bezier(0.7, 0, 0.84, 0);
+}
+@media only screen and (max-width: 700px) {
+	.gs24-footer-title-text {
+		font-size: 12.5vw;
+		grid-template-columns: 1fr 1fr;
+	}
+	.gs24-footer-title-background {
+		width: 200%;
+	}
+}
+
+/* Footer links */
+.gs24-footer-links {
+	display: flex;
+	flex-wrap: wrap;
+}
+.gs24-footer-link {
+	flex-shrink: 0;
+	height: 80px;
+	padding: 20px;
+	font-style: italic;
+	text-decoration: none;
+	font-family: "FT88";
+	flex-grow: 1;
+	font-size: 14px;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	position: relative;
+	text-transform: uppercase;
+	overflow: hidden;
+	-webkit-text-stroke: .5px black;
+	background-color: rgba(0,0,0,.25);
+}
+.gs24-footer-background {
+	z-index: -1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	flex-grow: 1;
+	background-size: auto 100000%;
+	background-repeat: no-repeat;
+	transition: flex-grow 2s cubic-bezier(0.25, 1, 0.5, 1), background-size 1s cubic-bezier(0.7, 0, 0.84, 0), background-image .5s;
+}
+.gs24-footer-link-label {
+	padding-top: .2em;
+	background-color: rgba(255,255,255,.85);
+	color: black;
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 20px;
+	padding: 0 20px 0 10px;
+	height: 40px;
+	fill: black;
+	animation: gs24-footer-link 2s infinite alternate ease-in-out;
+}
+.gs24-footer-link-label svg {
+	width: 15px;
+	height: 15px;
+}
+.gs24-footer-link-label span {
+	padding-top: .2em;
+}
+.gs24-footer-link:hover {
+	background-color: black;
+}
+.gs24-footer-link:hover .gs24-footer-link-label {
+	background-color: white;
+	color: black;
+}
+.gs24-footer-link:active .gs24-footer-link-label {
+	opacity: .5;
+}
+@keyframes gs24-footer-link {
+	from {
+		transform: translateX(-10px);
+	}
+	to {
+		transform: translateX(10px);
+	}
+}
+@media only screen and (max-width: 600px) {
+	.gs24-footer-links {
+		flex-direction: column;
+	}
 }
