@@ -220,10 +220,9 @@ body {
 	font-family: "FT88", sans-serif;
 	text-transform: uppercase;
 	font-style: italic;
-	-webkit-text-stroke: .5px white;
+	-webkit-text-stroke: .02em white;
 	font-size: var(--dept-size);
-	padding-top: .2em;
-	background-color: rgba(0,0,0,1);
+	background-color: rgba(0,0,0,.75);
 	color: white;
 	display: flex;
 	gap: 20px;
@@ -232,12 +231,12 @@ body {
 	justify-content: center;
 	border-radius: 4em;
 	letter-spacing: .1em;
-	padding: .6em 1em .4em 1em;
+	padding: .35em .8em .1em .8em;
 	/* box-shadow: 0 0 var(--dept-size) rgba(0,0,0,.25); */
 	cursor: grab;
 	transform: translate(-50%, -50%);
 	z-index: 3;
-	animation: poster-dept 5s infinite alternate ease-in-out;
+	/* animation: poster-dept 5s infinite alternate ease-in-out; */
 }
 @keyframes poster-dept {
 	from {
@@ -248,7 +247,7 @@ body {
 	}
 }
 .poster[data-invert-dept="1"] .poster-dept {
-	background-color: rgba(255,255,255,1);
+	background-color: rgba(255,255,255,.75);
 	-webkit-text-stroke: .5px black;
 	color: black;
 }

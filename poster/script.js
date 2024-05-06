@@ -47,7 +47,7 @@ function titleVariation(value) {
 function generateBackground() {
 	const posterBackground = document.querySelector('.poster-background');
 	let temp = "";
-	let randomImage = Math.round(Math.random()*145);
+	let randomImage = Math.round(Math.random()*34);
 	for (let i=0; i<500; i++) {
 		temp += `<div style="--offset: ${Math.random()*10}%; background-image: url('assets/images/img${randomImage}.jpg'); --speed-offset: ${Math.random()*100}s"></div>`;
 	}
@@ -56,9 +56,9 @@ function generateBackground() {
 function generateBackgroundMulti() {
 	const posterBackground = document.querySelector('.poster-background');
 	let images = [];
-	let totalImages = Math.round(Math.random()*5+5);
+	let totalImages = Math.round(Math.random()*10+3);
 	for (let i=0; i<totalImages; i++) {
-		images.push(`img${Math.round(Math.random()*145)}.jpg`);
+		images.push(`img${Math.round(Math.random()*34)}.jpg`);
 	}
 	let temp = "";
 	for (let i=0; i<500; i++) {
