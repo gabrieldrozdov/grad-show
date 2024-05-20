@@ -48,7 +48,7 @@ body {
 .poster {
 	--title-size: 144pt;
 	--info-size: 12pt;
-	--dept-size: 6pt;
+	--dept-size: 8pt;
 	--logo-size: 1in;
 	--info-inset: .5in;
 	--speed: 100s;
@@ -236,14 +236,14 @@ body {
 	cursor: grab;
 	transform: translate(-50%, -50%);
 	z-index: 3;
-	/* animation: poster-dept 5s infinite alternate ease-in-out; */
+	animation: poster-dept 5s infinite alternate ease-in-out;
 }
 @keyframes poster-dept {
 	from {
-		transform: translate(-50%, -50%) rotate(-5deg);
+		transform: translate(-55%, -50%);
 	}
 	to {
-		transform: translate(-50%, -50%) rotate(5deg);
+		transform: translate(-45%, -50%);
 	}
 }
 .poster[data-invert-dept="1"] .poster-dept {

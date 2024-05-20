@@ -545,7 +545,7 @@ function generatePreset(format, orientation) {
 			settingsTitleSize = "120";
 		}
 		settingsInfoSize = "12";
-		settingsDeptSize = "6";
+		settingsDeptSize = "8";
 		settingsLogoSize = "1";
 		settingsInfoInset = ".5";
 		settingsPreviewZoom = "75";
@@ -566,7 +566,7 @@ function generatePreset(format, orientation) {
 			settingsTitleSize = "190";
 		}
 		settingsInfoSize = "16";
-		settingsDeptSize = "9";
+		settingsDeptSize = "12";
 		settingsLogoSize = "1.4";
 		settingsInfoInset = ".6";
 		settingsPreviewZoom = "50";
@@ -587,7 +587,7 @@ function generatePreset(format, orientation) {
 			settingsTitleSize = "400";
 		}
 		settingsInfoSize = "24";
-		settingsDeptSize = "16";
+		settingsDeptSize = "18";
 		settingsLogoSize = "1.8";
 		settingsInfoInset = ".6";
 		settingsPreviewZoom = "23";
@@ -608,7 +608,7 @@ function generatePreset(format, orientation) {
 			settingsTitleSize = "600";
 		}
 		settingsInfoSize = "32";
-		settingsDeptSize = "20";
+		settingsDeptSize = "24";
 		settingsLogoSize = "2.5";
 		settingsInfoInset = ".6";
 		settingsPreviewZoom = "15";
@@ -629,7 +629,7 @@ function generatePreset(format, orientation) {
 			settingsTitleSize = "225";
 		}
 		settingsInfoSize = "12";
-		settingsDeptSize = "6";
+		settingsDeptSize = "12";
 		settingsLogoSize = "1";
 		settingsInfoInset = ".5";
 		settingsPreviewZoom = "15";
@@ -643,7 +643,7 @@ function generatePreset(format, orientation) {
 		settingsTitleStyle = "tall";
 		settingsTitleSize = "400";
 		settingsInfoSize = "24";
-		settingsDeptSize = "16";
+		settingsDeptSize = "18";
 		settingsLogoSize = "1.8";
 		settingsInfoInset = ".6";
 		settingsPreviewZoom = "23";
